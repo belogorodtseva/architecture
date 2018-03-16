@@ -1,7 +1,21 @@
 {% extends "index.html" %}
 {% load staticfiles %}
+{% block headin %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+{% endblock %}
 
 {% block content %}
+<section class="main-gallery">
+  <div class="gallery-item" style="background-image:url('/media/new.jpg')">
+</section>
 
+<section class="last-projects">
+  <header>
+    <h2 class="second-header">last projects</h2>
+    <div class="line"></div>
+  </header>
+  <div class="projects" >
+  </div>
+</section>
 
 {% endblock %}
