@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>ARCHIproject</title>
+  {% load staticfiles %}
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/all.css' %}"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  {% block headin %}
+  {% endblock %}
+
+</head>
+
+<body>
+  <header class="mainheader">
+    <div class="container">
+      <div class="soc-icons">
+        <a href="https://www.instagram.com/" target="_blank" rel="nofollow">
+          <span class="icon-instagram"></span>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="nofollow">
+          <span class="icon-facebook"></span>
+        </a>
+        <a href="https://www.behance.net/" target="_blank" rel="nofollow">
+          <span class="icon-behance"></span>
+        </a>
+        <a href="https://twitter.com/" target="_blank" rel="nofollow">
+          <span class="icon-twitter"></span>
+        </a>
+      </div>
+      <div class="container-button" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="mainlogo">
+        <a href="/">ARCHIPROJECTS</a>
+      </div>
+      <div class="lang">
+        <ul class="lang-list">
+          <li id="lang-en" class="active-item"><a href="/">EN</a></li>
+          <li>|</li>
+          <li id="lang-ru"><a href="/">RU</a></li>
+          <li>|</li>
+          <li id="lang-ua"><a href="/">UA</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu">
+    <ul class="menu-list">
+      <li id="menu-home" class="active-item"><a href="/">Home</a></li>
+      <li id="menu-projects"><a href="/projects/">Projects</a></li>
+      <li id="menu-services"><a href="/services/">Services</a></li>
+      <li id="menu-about"><a href="/contact/">About us</a></li>
+      <li id="menu-contact"><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  {% block content %}
+  {% endblock %}
+
+  <!--Footer-->
+  <footer>
+
+  </footer>
+  <script>
+
+    function myFunction(x) {
+        x.classList.toggle("change");
+        $(".menu-list").toggleClass("open");
+    }
+
+  </script>
+  {% block scriptin %}
+  {% endblock %}
+
+</body>
