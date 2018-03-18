@@ -17,3 +17,9 @@ def contact(request):
 
     }
     return render(request, 'contact.html', content)
+
+def services(request):
+    content = {
+
+    }
+    return render(request, 'services.html', content)

@@ -9,13 +9,82 @@
   <div class="gallery-item" style="background-image:url('/media/new.jpg')">
 </section>
 
-<section class="last-projects">
-  <header>
-    <h2 class="second-header">last projects</h2>
-    <div class="line"></div>
-  </header>
-  <div class="projects" >
+<header>
+  <h2 class="second-header">about us</h2>
+  <div class="line"></div>
+</header>
+
+<section class="about-section">
+  <div class="text-block">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+  <div class="text-block">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </div>
 </section>
 
+
+<header>
+  <h2 class="second-header">last projects</h2>
+  <div class="line"></div>
+</header>
+
+<section class="last-projects">
+
+  <div class="projects" >
+    <a href="">
+      <div class="project-block">
+        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+    <a href="">
+      <div class="project-block">
+        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+    <a href="">
+      <div class="project-block">
+        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+
+    <a href="">
+      <div class="project-block">
+        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+    <a href="">
+      <div class="project-block">
+        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+    <a href="">
+      <div class="project-block">
+        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block scriptin %}
+<script>
+  $('.project-block').hover(function(){
+      $(this).toggleClass('active-image');
+  });
+</script>
 {% endblock %}
