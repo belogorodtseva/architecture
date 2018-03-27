@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<header class="projects-type">
+  <h2 class="second-header">АРХІТЕКТУРА</h2>
+  <div class="line"></div>
+</header>
+
+<section class="last-projects">
+
+  <div class="projects" >
+    <a href="">
+      <div class="project-header">
+        <h3 class="project-name">Назва проекту</h3>
+        <div class="line"></div>
+        <p class="project-date">2017-2018</p>
+        <p class="project-place">Одесса</p>
+      </div>
+
+      <div class="project-block">
+        <div class="project-image-hover"></div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+    <a href="">
+      <div class="project-header">
+        <h3 class="project-name">Назва проекту</h3>
+        <div class="line"></div>
+        <p class="project-date">2017-2018</p>
+        <p class="project-place">Одесса</p>
+      </div>
+      <div class="project-block">
+        <div class="project-image-hover"></div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+    <a href="">
+      <div class="project-header">
+        <h3 class="project-name">Назва проекту</h3>
+        <div class="line"></div>
+        <p class="project-date">2017-2018</p>
+        <p class="project-place">Одесса</p>
+      </div>
+      <div class="project-block">
+        <div class="project-image-hover"></div>
+        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<script>
+  $('.project-block').hover(function(){
+      $(this).toggleClass('active-image');
+  });
+</script>
+
+{% endblock %}
