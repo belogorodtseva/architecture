@@ -70,8 +70,8 @@
   font-weight: normal;
 }
 
-.line {
-  border-bottom: 1px solid #999;
+.project-line {
+  border-bottom: 1px solid #fff;
   width: 200px;
 
 }
@@ -112,10 +112,13 @@
 .project-name {
   font-weight: normal;
   font-size: 35px;
-  margin: 5px;
+  margin: 0px;
   color: #464646;
 }
 
+.project-date, .project-place {
+  margin: 2px;
+}
 
 
 
@@ -161,4 +164,84 @@
 
 .last-projects {
   padding-bottom: 100px;
+}
+
+
+
+/*submenu*/
+.submenu {
+  border-bottom: 1px solid #bebebe;
+}
+
+.submenu-list {
+    position: relative;
+    margin: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+  .submenu-list {
+      width: 500px;
+  }
+}
+
+@media (min-width: 992px) {
+  .submenu-list {
+      width: 750px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .submenu-list {
+      width: 970px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .submenu-list {
+    position: relative;
+    margin: 5px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+    list-style-type: none;
+    padding: 0;
+    display: none;
+  }
+}
+
+
+.submenu-list li {
+  float: left;
+  margin-left: 5px;
+}
+
+.submenu-list a, .submenu-list li {
+  color: #999;
+  line-height: 27px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.submenu-list a:hover {
+  color: #464646;
+}
+
+.active-item a{
+  color: #464646;
 }

@@ -7,18 +7,29 @@
 
 {% block content %}
 
+
+<nav class="submenu">
+  <ul class="submenu-list">
+    <li id="submenu"><a href="/">котеджи</a></li>
+    <li id="submenu"><a href="/">многоквартирные дома</a></li>
+    <li id="submenu"><a href="/">дома на плаву</a></li>
+  </ul>
+</nav>
+
+<!--
 <header class="projects-type">
   <h2 class="second-header">АРХІТЕКТУРА</h2>
   <div class="line"></div>
 </header>
+-->
 
 <section class="last-projects">
 
   <div class="projects" >
-    <a href="">
+    <a href="/archprojects/1/">
       <div class="project-header">
-        <h3 class="project-name">Назва проекту</h3>
-        <div class="line"></div>
+        <h3 class="project-name">ALBATROS</h3>
+        <div class="project-line"></div>
         <p class="project-date">2017-2018</p>
         <p class="project-place">Одесса</p>
       </div>
@@ -28,10 +39,10 @@
         <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
       </div>
     </a>
-    <a href="">
+    <a href="/designprojects/1/">
       <div class="project-header">
-        <h3 class="project-name">Назва проекту</h3>
-        <div class="line"></div>
+        <h3 class="project-name">PRIMA</h3>
+        <div class="project-line"></div>
         <p class="project-date">2017-2018</p>
         <p class="project-place">Одесса</p>
       </div>
@@ -42,8 +53,8 @@
     </a>
     <a href="">
       <div class="project-header">
-        <h3 class="project-name">Назва проекту</h3>
-        <div class="line"></div>
+        <h3 class="project-name">KAKTUS</h3>
+        <div class="project-line"></div>
         <p class="project-date">2017-2018</p>
         <p class="project-place">Одесса</p>
       </div>
@@ -55,9 +66,17 @@
   </div>
 </section>
 
+
 <script>
   $('.project-block').hover(function(){
       $(this).toggleClass('active-image');
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+      $(".menu-list li").removeClass("active-item");
+      $("#menu-projects").addClass("active-item");
   });
 </script>
 

@@ -18,6 +18,18 @@ def designprojects(request):
     }
     return render(request, 'designprojects.html', content)
 
+def archproject(request, pk):
+    content = {
+
+    }
+    return render(request, 'project.html', content)
+
+def designproject(request, pk):
+    content = {
+
+    }
+    return render(request, 'project2.html', content)
+
 def contact(request):
     content = {
 

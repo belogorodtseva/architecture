@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^archprojects/(?P<pk>[0-9]+)/', views.archproject, name='archproject'),
+    url(r'^designprojects/(?P<pk>[0-9]+)/', views.designproject, name='designproject'),
     url(r'^archprojects/', views.archprojects, name='archprojects'),
     url(r'^designprojects/', views.designprojects, name='designprojects'),
     url(r'^contact/', views.contact, name='contact'),
