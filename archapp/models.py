@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+import datetime
+from datetime import datetime
 
 ###### ArchProjects-type #####
 
@@ -19,7 +21,7 @@ class ArchitectureType(models.Model):
 
 
     def __unicode__(self):
-        return '%s - %s - %s' % (unicode(self.name_en), unicode(self.name_ru), unicode(self.name_ua))
+        return '%s' % (unicode(self.name_en))
 
 
 ###### DesignProjects-type #####
@@ -39,7 +41,7 @@ class DesignType(models.Model):
 
 
     def __unicode__(self):
-        return '%s - %s - %s' % (unicode(self.name_en), unicode(self.name_ru), unicode(self.name_ua))
+        return '%s' % (unicode(self.name_en))
 
 
 ###### ArchProjects #####
@@ -57,7 +59,19 @@ class ArchitectureProject(models.Model):
     name_ru = models.CharField(max_length=100)
     name_ua = models.CharField(max_length=100)
 
+    location_en = models.CharField(max_length=200,blank=True, null=True)
+    location_ru = models.CharField(max_length=200,blank=True, null=True)
+    location_ua = models.CharField(max_length=200,blank=True, null=True)
+
+    year = models.CharField(max_length=9,blank=True, null=True)
+
+    img = models.FileField(blank=True, null=True)
+
+
     type = models.ForeignKey(ArchitectureType, on_delete=models.CASCADE)
+
+    date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
+    active = models.BooleanField(default=True)
 
 
     def __unicode__(self):
@@ -78,7 +92,18 @@ class DesignProject(models.Model):
     name_ru = models.CharField(max_length=100)
     name_ua = models.CharField(max_length=100)
 
+    location_en = models.CharField(max_length=200,blank=True, null=True)
+    location_ru = models.CharField(max_length=200,blank=True, null=True)
+    location_ua = models.CharField(max_length=200,blank=True, null=True)
+
+    year = models.CharField(max_length=9,blank=True, null=True)
+
+    img = models.FileField(blank=True, null=True)
+
     type = models.ForeignKey(DesignType, on_delete=models.CASCADE)
+
+    date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
+    active = models.BooleanField(default=True)
 
 
     def __unicode__(self):

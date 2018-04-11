@@ -1,9 +1,11 @@
 {% extends "indextemplate.html" %}
 {% load staticfiles %}
 
-  {% block headin %}
-  <title>ARCHIproject</title>
+{% block headin %}
+  {% block headinua %}
   {% endblock %}
+{% endblock %}
+
 
 
 {% block body %}
@@ -33,11 +35,11 @@
       </div>
       <div class="lang">
         <ul class="lang-list">
-          <li id="lang-ru" class="active-item"><a href="/">RU</a></li>
-          <li>|</li>
           <li id="lang-ua"><a href="/">UA</a></li>
           <li>|</li>
-          <li id="lang-en"><a href="/">EN</a></li>
+          <li id="lang-ru" class="active-item"><a href="/ru/">RU</a></li>
+          <li>|</li>
+          <li id="lang-en"><a href="/en/">EN</a></li>
         </ul>
       </div>
     </div>

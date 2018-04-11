@@ -1,77 +1,51 @@
-{% extends "index.html" %}
+{% extends "ua/index.html" %}
 {% load staticfiles %}
 
-{% block styles %}
-<link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
+{% block headinua %}
+  <title>АРХИТЕКТУРА | ARCHIPROJECTS</title>
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
 {% endblock %}
 
 {% block content %}
 
 
 <nav class="submenu">
-  <ul class="submenu-list">
-    <li id="submenu"><a href="/">котеджи</a></li>
-    <li id="submenu"><a href="/">многоквартирные дома</a></li>
-    <li id="submenu"><a href="/">дома на плаву</a></li>
+  <ul class="submenu-list" id=myBtnContainer>
+
+    <li><a class="btn active" onclick="filterSelection('all')" >ВСЕ</a></li>
+    {% for T in Types %}
+      <li><a class="btn" onclick="filterSelection('{{ T.name_en}}')" >{{ T.name_ua}}</a></li>
+    {% endfor %}
   </ul>
 </nav>
 
-<!--
-<header class="projects-type">
-  <h2 class="second-header">АРХІТЕКТУРА</h2>
-  <div class="line"></div>
-</header>
--->
 
-<section class="last-projects">
-
+<section class="projects-wrapper">
   <div class="projects" >
-    <a href="/archprojects/1/">
-      <div class="project-header">
-        <h3 class="project-name">ALBATROS</h3>
-        <div class="project-line"></div>
-        <p class="project-date">2017-2018</p>
-        <p class="project-place">Одесса</p>
-      </div>
+    <div id="portfolio" class="containerP">
+      {% for P in Project %}
 
-      <div class="project-block">
-        <div class="project-image-hover"></div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="/designprojects/1/">
-      <div class="project-header">
-        <h3 class="project-name">PRIMA</h3>
-        <div class="project-line"></div>
-        <p class="project-date">2017-2018</p>
-        <p class="project-place">Одесса</p>
-      </div>
-      <div class="project-block">
-        <div class="project-image-hover"></div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-header">
-        <h3 class="project-name">KAKTUS</h3>
-        <div class="project-line"></div>
-        <p class="project-date">2017-2018</p>
-        <p class="project-place">Одесса</p>
-      </div>
-      <div class="project-block">
-        <div class="project-image-hover"></div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
+        <a href="{% url 'archproject' pk=P.pk %}">
+          <div class="tile {{ P.type}}">
+            <img src="{{ P.img.url }}" alt="" />
+            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
+
+            <div class="project-details"><p>{{ P.location_ua }} | {{ P.year }}</p></div>
+          </div>
+        </a>
+
+      {% endfor %}
+    </div>
+
+    <div style="clear:both;"></div>
+
   </div>
 </section>
 
 
-<script>
-  $('.project-block').hover(function(){
-      $(this).toggleClass('active-image');
-  });
-</script>
 
 <script>
   $(document).ready(function(){
@@ -79,5 +53,51 @@
       $("#menu-projects").addClass("active-item");
   });
 </script>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("tile");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+/* Add active class to the current button (highlight it)*/
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
 
 {% endblock %}

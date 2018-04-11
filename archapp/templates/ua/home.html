@@ -1,6 +1,7 @@
-{% extends "index.html" %}
+{% extends "ua/index.html" %}
 {% load staticfiles %}
-{% block headin %}
+{% block headinua %}
+  <title>ГОЛОВНА | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
 {% endblock %}
 
@@ -85,6 +86,13 @@
 <script>
   $('.project-block').hover(function(){
       $(this).toggleClass('active-image');
+  });
+</script>
+
+<script>
+  $(document).ready(function(){
+      $(".menu-list li").removeClass("active-item");
+      $("#menu-home").addClass("active-item");
   });
 </script>
 {% endblock %}

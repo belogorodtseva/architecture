@@ -2,9 +2,7 @@
 {% load staticfiles %}
 
   {% block headin %}
-  <title>ARCHIproject</title>
-
-    {% block styles %}
+    {% block headinua %}
     {% endblock %}
   {% endblock %}
 
@@ -38,9 +36,9 @@
         <ul class="lang-list">
           <li id="lang-ua" class="active-item"><a href="/">UA</a></li>
           <li>|</li>
-          <li id="lang-ru"><a href="/">RU</a></li>
+          <li id="lang-ru"><a href="/ru/">RU</a></li>
           <li>|</li>
-          <li id="lang-en"><a href="/">EN</a></li>
+          <li id="lang-en"><a href="/en/">EN</a></li>
         </ul>
       </div>
     </div>
@@ -86,6 +84,8 @@
     }
   </script>
   {% block scriptin %}
+
+
   {% endblock %}
 
 {% endblock %}

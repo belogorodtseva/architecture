@@ -8,19 +8,21 @@ def index(request):
 
 def archprojects(request):
     content = {
-        'Projects' : Project.objects.all().order_by('name_ua'),
+        'Types' : ArchitectureType.objects.all(),
+        'Project' : ArchitectureProject.objects.all().order_by('date'),
     }
     return render(request, 'ua/archprojects.html', content)
 
 def designprojects(request):
     content = {
-        'Projects' : Project.objects.all().order_by('name_ua'),
+        'Project' : DesignProject.objects.all().order_by('name_ua'),
     }
     return render(request, 'ua/designprojects.html', content)
 
 def archproject(request, pk):
     content = {
-
+        'Project' : ArchitectureProject.objects.filter(pk=pk),
+        'Images' : ArchitectureImage.objects.all().filter(project=pk),
     }
     return render(request, 'ua/project.html', content)
 

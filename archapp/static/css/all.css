@@ -15,6 +15,7 @@ body {
   margin: 0;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   position: relative;
+  padding-bottom: 70px;
 }
 
 a {

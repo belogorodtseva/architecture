@@ -1,7 +1,20 @@
-{% extends "index.html" %}
+{% extends "ua/index.html" %}
 {% load staticfiles %}
+
+{% block headinua %}
+  <title>КОНТАКТИ | ARCHIPROJECTS</title>
+  <link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
+{% endblock %}
+
 
 {% block content %}
 
+
+<script>
+  $(document).ready(function(){
+      $(".menu-list li").removeClass("active-item");
+      $("#menu-contact").addClass("active-item");
+  });
+</script>
 
 {% endblock %}
