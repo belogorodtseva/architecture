@@ -38,6 +38,22 @@
         </a>
 
       {% endfor %}
+
+<!---            *2                     -->
+
+
+      {% for P in Project %}
+
+        <a href="{% url 'archproject' pk=P.pk %}">
+          <div class="tile {{ P.type}}">
+            <img src="{{ P.img.url }}" alt="" />
+            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
+
+            <div class="project-details"><p>{{ P.location_ua }} | {{ P.year }}</p></div>
+          </div>
+        </a>
+
+      {% endfor %}
     </div>
 
     <div style="clear:both;"></div>

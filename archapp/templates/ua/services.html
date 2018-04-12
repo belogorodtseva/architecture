@@ -3,11 +3,144 @@
 
 {% block headinua %}
   <title>ПОСЛУГИ | ARCHIPROJECTS</title>
-  <link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/services.css' %}"/>
 {% endblock %}
 
 
 {% block content %}
+<div class="services-wrap">
+  <nav class="services-nav">
+    <ul class="services-list">
+      <li class="services-item"><a href="#architecture" onclick="show('architecture')">Архитектура</a></li>
+      <li class="services-item"><a href="#design" onclick="show('design')">Дизайн</a></li>
+      <li class="services-item"><a href="#supervision" onclick="show('supervision')">Авторское сопровождение</a></li>
+    </ul>
+  </nav>
+
+  <div class="services-content">
+
+    <section id="architecture" class="service architecture active-service">
+
+      <h3 class="service-header">Архитектура</h3>
+
+      <p class="service-description">Архитектура | Мы создаём проекты с оригинальными планами и фасадными решениями.
+        Группа архитекторов выполнит все необходимые чертежи, а оценить здание вы сможете ещё до начала строительных работ,
+        благодаря нашим реалистичным 3D-визуализациям.</p>
+
+      <div class="service-block">
+        <h3 class="service-header">ЭСКИЗНЫЙ ПРОЕКТ (ЭП):</h3>
+        <ul class="service-list">
+          <li class="service-item">3D-моделирование и графическое изображение объекта</li>
+          <li class="service-item">варианты посадки котеджа на участке</li>
+          <li class="service-item">варианты планов этажей</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h3 class="service-header">ПРОЕКТНОЕ ПРЕДЛОЖНИЕ (ПП):</h3>
+        <ul class="service-list">
+          <li class="service-item">схема посадки здания на участке</li>
+          <li class="service-item">планировочные решения по этажам</li>
+          <li class="service-item">фасады в осях</li>
+          <li class="service-item">разрезы 1-1, 2-2 (по необходимости)</li>
+          <li class="service-item">фотореалистичная 3D-визуализация дома</li>
+        </ul>
+      </div>
+
+
+      <h3 class="service-header">СРОКИ:</h3>
+      <p class="service-line">от 4 до 8 недель</p>
+
+      <h3 class="service-header">СТОИМОСТЬ:</h3>
+      <p class="service-line">от 20$ / м2</p>
+
+    </section>
+
+    <section id="design" class="service design">
+
+      <h3 class="service-header">Дизайн</h3>
+
+      <p class="service-description">Дизайн | Мы создаём проекты с оригинальными планами и фасадными решениями.
+        Группа архитекторов выполнит все необходимые чертежи, а оценить здание вы сможете ещё до начала строительных работ,
+        благодаря нашим реалистичным 3D-визуализациям.</p>
+
+      <div class="service-block">
+        <h3 class="service-header">ЭСКИЗНЫЙ ПРОЕКТ (ЭП):</h3>
+        <ul class="service-list">
+          <li class="service-item">3D-моделирование и графическое изображение объекта</li>
+          <li class="service-item">варианты посадки котеджа на участке</li>
+          <li class="service-item">варианты планов этажей</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h3 class="service-header">ПРОЕКТНОЕ ПРЕДЛОЖНИЕ (ПП):</h3>
+        <ul class="service-list">
+          <li class="service-item">схема посадки здания на участке</li>
+          <li class="service-item">планировочные решения по этажам</li>
+          <li class="service-item">фасады в осях</li>
+          <li class="service-item">разрезы 1-1, 2-2 (по необходимости)</li>
+          <li class="service-item">фотореалистичная 3D-визуализация дома</li>
+        </ul>
+      </div>
+
+
+      <h3 class="service-header">СРОКИ:</h3>
+      <p class="service-line">от 4 до 8 недель</p>
+
+      <h3 class="service-header">СТОИМОСТЬ:</h3>
+      <p class="service-line">от 20$ / м2</p>
+
+    </section>
+
+    <section id="supervision" class="service supervision">
+
+      <h3 class="service-header">Авторское сопровождение</h3>
+
+      <p class="service-description">Авторское сопровождение | Мы создаём проекты с оригинальными планами и фасадными решениями.
+        Группа архитекторов выполнит все необходимые чертежи, а оценить здание вы сможете ещё до начала строительных работ,
+        благодаря нашим реалистичным 3D-визуализациям.</p>
+
+      <div class="service-block">
+        <h3 class="service-header">ЭСКИЗНЫЙ ПРОЕКТ (ЭП):</h3>
+        <ul class="service-list">
+          <li class="service-item">3D-моделирование и графическое изображение объекта</li>
+          <li class="service-item">варианты посадки котеджа на участке</li>
+          <li class="service-item">варианты планов этажей</li>
+        </ul>
+      </div>
+
+      <div class="service-block">
+        <h3 class="service-header">ПРОЕКТНОЕ ПРЕДЛОЖНИЕ (ПП):</h3>
+        <ul class="service-list">
+          <li class="service-item">схема посадки здания на участке</li>
+          <li class="service-item">планировочные решения по этажам</li>
+          <li class="service-item">фасады в осях</li>
+          <li class="service-item">разрезы 1-1, 2-2 (по необходимости)</li>
+          <li class="service-item">фотореалистичная 3D-визуализация дома</li>
+        </ul>
+      </div>
+
+
+      <h3 class="service-header">СРОКИ:</h3>
+      <p class="service-line">от 4 до 8 недель</p>
+
+      <h3 class="service-header">СТОИМОСТЬ:</h3>
+      <p class="service-line">от 20$ / м2</p>
+
+    </section>
+
+  </div>
+
+</div>
+<script>
+  function show(serviceName) {
+    var current = document.getElementsByClassName("active-service");
+    current[0].className = current[0].className.replace(" active-service", "");
+    var toActive = document.getElementsByClassName(serviceName);
+    toActive[0].className += " active-service";
+  };
+</script>
 
 
 <script>
