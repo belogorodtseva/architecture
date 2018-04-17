@@ -6,8 +6,11 @@
 {% endblock %}
 
 {% block content %}
-<section class="main-gallery">
-  <div class="gallery-item" style="background-image:url('/media/new.jpg')">
+<section id="slider">
+  {% for I in Images %}
+      <div class="gallery-item" style="background-image:url('{{ I.img.url }}')"></div>
+  {% endfor %}
+
 </section>
 
 <header>
@@ -94,5 +97,36 @@
       $(".menu-list li").removeClass("active-item");
       $("#menu-home").addClass("active-item");
   });
+</script>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("gallery-item");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(function() {
+        fade();
+    },4500);
+
+    setTimeout(function() {
+        carousel();
+    },5000);
+}
+
+function fade() {
+    document.getElementById('slider').className = "fadeOut";
+    setTimeout(function() {
+        document.getElementById('slider').className = "";
+    },500);
+}
+
 </script>
 {% endblock %}

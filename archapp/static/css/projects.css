@@ -194,7 +194,7 @@
   opacity: 0;
   transition: .5s ease;
   z-index: 6;
-  background-color: rgba(0,0,0,0.6);
+  background-color: #f3f3f3c9;
 }
 
 .project-details  {
@@ -219,9 +219,9 @@
   position: absolute;
   bottom: 45px;
   left: 20px;
-  color: #fff;
-  font-size: 25px;
-  font-weight: 100;
+  color: #464646;
+  font-size: 27px;
+  font-weight: 400;
 }
 
 .tile:hover .project-details {
@@ -233,8 +233,8 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
-  color: #fff;
-  font-size: 17px;
+  color: #464646;
+  font-size: 20px;
   font-weight: 100;
 }
 

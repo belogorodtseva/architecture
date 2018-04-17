@@ -4,7 +4,10 @@ from django.shortcuts import render
 from archapp.models import *
 
 def index(request):
-    return render(request, 'ua/home.html')
+    content = {
+        'Images' : HomeImage.objects.all().order_by('number'),
+    }
+    return render(request, 'ua/home.html', content)
 
 def archprojects(request):
     content = {

@@ -120,3 +120,13 @@ class ArchitectureImage(models.Model):
 class DesignImage(models.Model):
    project = models.ForeignKey(DesignProject, on_delete=models.CASCADE)
    img = models.FileField(blank=True, null=True)
+
+
+###### Home-photo #####
+
+class HomeImage(models.Model):
+   number = models.IntegerField(default=1)
+   img = models.FileField(blank=False, null=False)
+
+   def __int__(self):
+        return str(self.number)
