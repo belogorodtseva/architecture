@@ -42,46 +42,18 @@
 <section class="last-projects">
 
   <div class="projects" >
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Project name</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-  </div>
+    {% for P in Project %}
+      <a href="{% url 'archproject' pk=P.archproject.pk %}">
+        <div class="project-block">
+          <div class="project-image-hover">
+            <div class="project-name"><h3>{{ P.archproject.name_ua }}</h3></div>
+            <div class="project-details"><p>{{ P.archproject.location_ua }} | {{ P.archproject.year }}</p></div>
+          </div>
+          <div class="project-image" style="background-image:url('{{ P.img.url }}')"></div>
+        </div>
+      </a>
+    {% endfor %}
 </section>
-
 
 {% endblock %}
 

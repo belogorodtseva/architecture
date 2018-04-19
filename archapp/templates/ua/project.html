@@ -4,6 +4,11 @@
 {% block headinua %}
   <title>НАЗВАНИЕ | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/project.css' %}"/>
+      <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="{% static 'popup/magnific-popup.css' %}">
+    <!-- Magnific Popup core JS file -->
+    <script src="{% static 'popup/jquery.magnific-popup.js' %}"></script>
+
 {% endblock %}
 
 
@@ -26,7 +31,9 @@
     <div id="portfolio">
       {% for I in Images %}
       <div class="tile">
+         <a href="{{ I.img.url }}" data-source="{{ I.img.url }}">
         <img src="{{ I.img.url }}" alt="" />
+        </a>
       </div>
       {% endfor %}
     </div>
@@ -35,6 +42,8 @@
 
   </div>
 </section>
+
+
 
 <script> $(function() {
 		var selectedClass = "";
@@ -50,7 +59,32 @@
 	});
 });</script>
 
+<script>
+$(document).ready(function() {
+	$('.tile').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		closeOnContentClick: false,
+		closeBtnInside: false,
+		mainClass: 'mfp-with-zoom mfp-img-mobile',
+		image: {
+			verticalFit: true,
 
+		},
+		gallery: {
+			enabled: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300, // don't foget to change the duration also in CSS
+			opener: function(element) {
+				return element.find('img');
+			}
+		}
+
+	});
+});
+</script>
 <script>
   $(document).ready(function(){
       $(".menu-list li").removeClass("active-item");

@@ -130,13 +130,48 @@
   opacity: 1;
 }
 
-.project-name {
-  text-transform: uppercase;
+
+.project-name  {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  transition: .5s ease;
+  z-index: 6;
+}
+
+.project-details  {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 6;
+  transition: .5s ease;
+}
+
+.project-name h3 {
+  margin: 0;
+  position: absolute;
+  bottom: 45px;
+  left: 20px;
+  color: #464646;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.project-details p {
+  margin: 0;
   position: absolute;
   bottom: 20px;
   left: 20px;
   color: #464646;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 100;
 }
 

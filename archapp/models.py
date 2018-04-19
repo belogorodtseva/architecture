@@ -128,5 +128,16 @@ class HomeImage(models.Model):
    number = models.IntegerField(default=1)
    img = models.FileField(blank=False, null=False)
 
-   def __int__(self):
-        return str(self.number)
+   def __str__(self):
+        return "# " + str(self.number)
+
+
+###### Home-project #####
+
+class HomeProject(models.Model):
+   number = models.IntegerField(default=1)
+   archproject = models.ForeignKey(ArchitectureProject, on_delete=models.CASCADE, blank=True, null=True)
+   img = models.FileField(blank=False, null=False)
+
+   def __unicode__(self):
+        return "# " + str(self.number) + " - " + unicode(self.archproject)
