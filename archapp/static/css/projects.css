@@ -212,6 +212,7 @@
 
 .tile:hover .project-name {
   opacity: 1;
+  transition: all .5s ease;
 }
 
 .project-name h3 {

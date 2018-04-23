@@ -208,12 +208,12 @@ button::-moz-focus-inner {
 
 
   .mfp-arrow-left:hover {
-    background-color: #f3f3f354 !important;
+    background-color: #f3f3f31a !important;
 
   }
 
   .mfp-arrow-right:hover {
-    background-color: #f3f3f354 !important;
+    background-color: #f3f3f31a !important;
 }
 
 .mfp-iframe-holder {
