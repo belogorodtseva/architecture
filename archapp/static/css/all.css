@@ -7,6 +7,12 @@
   url("fonts/IcoMoon.svg#filename") format("svg");
 }
 
+@font-face {
+  font-family: 'GT-Walsheim-Pro-Trial-Thin';
+  src: url("fonts/GT-Walsheim-Pro-Trial-Thin.otf");
+}
+
+
 * {
   box-sizing: border-box;
   outline: none;
@@ -14,7 +20,7 @@
 
 body {
   margin: 0;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: GT-Walsheim-Pro-Trial-Thin, sans-serif;
   position: relative;
   padding-bottom: 70px;
 }

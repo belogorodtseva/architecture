@@ -194,7 +194,7 @@
   opacity: 0;
   transition: .5s ease;
   z-index: 6;
-  background-color: #f3f3f3c9;
+  background-color: rgba(243, 243, 243, 0.788235294117647);
 }
 
 .project-details  {

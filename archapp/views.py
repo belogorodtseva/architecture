@@ -1,7 +1,17 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render
 from archapp.models import *
+from archapp.forms import ContactForm
+from django.conf import settings
+
+from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect
+from django.core.mail import EmailMessage
+from django.template import Context
+from django.template.loader import get_template
 
 def index(request):
     content = {
@@ -42,10 +52,24 @@ def designproject(request, pk):
     return render(request, 'ua/project.html', content)
 
 def contact(request):
+    form = ContactForm(request.POST or None)
+    print(form)
+    if form.is_valid():
+        name = form.cleaned_data.get('name')
+        email = form.cleaned_data.get('email')
+        subject = "Вопрос на сайте"
+        message = form.cleaned_data.get('message')
+        from_email = settings.EMAIL_HOST_USER
+        contact_message= "Name: \n%s \n\nMessage: \n%s \n\n From %s"%(
+                name,
+                message,
+                email)
+        send_mail(subject,contact_message,from_email,['chernyatevich@gmail.com'],fail_silently=False)
     content = {
-
+        'form': form,
     }
     return render(request, 'ua/contact.html', content)
+
 
 def services(request):
     content = {
