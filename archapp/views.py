@@ -12,44 +12,40 @@ from django.shortcuts import redirect
 from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template
+from itertools import chain
 
 def index(request):
     content = {
         'Images' : HomeImage.objects.all().order_by('number'),
         'Project' : HomeProject.objects.all().order_by('number')[:6],
     }
-    xx = HomeProject.objects.all().order_by('number')[:6]
-    print(xx[0].archproject.name_en)
     return render(request, 'ua/home.html', content)
 
-def archprojects(request):
+def projects(request):
+    projects = sorted(chain(BuildingProject.objects.all(), InteriorProject.objects.all(), FloatingProject.objects.all()),
+                    key=lambda instance: instance.date)
     content = {
-        'Types' : ArchitectureType.objects.all(),
-        'Project' : ArchitectureProject.objects.all().order_by('date'),
+        'Project' : projects,
     }
 
-    return render(request, 'ua/archprojects.html', content)
+    return render(request, 'ua/projects.html', content)
 
-def designprojects(request):
+def project(request, category, pk):
+    if category=='building':
+        project = BuildingProject.objects.filter(pk=pk)
+        images = BuildingImage.objects.all().filter(project=pk)
+    elif category=='interior':
+        project = InteriorProject.objects.filter(pk=pk)
+        images = InteriorImage.objects.all().filter(project=pk)
+    else:
+        project = FloatingProject.objects.filter(pk=pk)
+        images = FloatingImage.objects.all().filter(project=pk)
     content = {
-        'Types' : DesignType.objects.all(),
-        'Project' : DesignProject.objects.all().order_by('name_ua'),
-    }
-    return render(request, 'ua/designprojects.html', content)
-
-def archproject(request, pk):
-    content = {
-        'Project' : ArchitectureProject.objects.filter(pk=pk),
-        'Images' : ArchitectureImage.objects.all().filter(project=pk),
-    }
-    return render(request, 'ua/project.html', content)
-
-def designproject(request, pk):
-    content = {
-        'Project' : DesignProject.objects.filter(pk=pk),
-        'Images' : DesignImage.objects.all().filter(project=pk),
+        'Project' : project,
+        'Images' : images,
     }
     return render(request, 'ua/project.html', content)
+
 
 def contact(request):
     form = ContactForm(request.POST or None)
@@ -71,28 +67,17 @@ def contact(request):
     return render(request, 'ua/contact.html', content)
 
 
-def services(request):
-    content = {
-
-    }
-    return render(request, 'ua/services.html', content)
 
 ### ru
 
 def ruindex(request):
     return render(request, 'ru/ruhome.html')
 
-def ruarchprojects(request):
+def ruprojects(request):
     content = {
-        'Projects' : Project.objects.all().order_by('name_ru'),
+        #'Projects' : Project.objects.all().order_by('name_ru'),
     }
-    return render(request, 'ru/ruarchprojects.html', content)
-
-def rudesignprojects(request):
-    content = {
-        'Projects' : Project.objects.all().order_by('name_ru'),
-    }
-    return render(request, 'ru/rudesignprojects.html', content)
+    return render(request, 'ru/ruprojects.html', content)
 
 def rucontact(request):
     content = {
@@ -100,11 +85,6 @@ def rucontact(request):
     }
     return render(request, 'ru/rucontact.html', content)
 
-def ruservices(request):
-    content = {
-
-    }
-    return render(request, 'ru/ruservices.html', content)
 
 
 ### en
@@ -112,26 +92,16 @@ def ruservices(request):
 def enindex(request):
     return render(request, 'en/enhome.html')
 
-def enarchprojects(request):
-    content = {
-        'Projects' : Project.objects.all().order_by('name_en'),
-    }
-    return render(request, 'en/enarchprojects.html', content)
 
-def endesignprojects(request):
+def enprojects(request):
     content = {
-        'Projects' : Project.objects.all().order_by('name_en'),
+        #'Projects' : Project.objects.all().order_by('name_en'),
     }
-    return render(request, 'en/endesignprojects.html', content)
+    return render(request, 'en/enprojects.html', content)
+
 
 def encontact(request):
     content = {
 
     }
     return render(request, 'en/encontact.html', content)
-
-def enservices(request):
-    content = {
-
-    }
-    return render(request, 'en/enservices.html', content)

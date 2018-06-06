@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block headinua %}
-  <title>АРХИТЕКТУРА | ARCHIPROJECTS</title>
+  <title>ПРОЕКТИ | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
@@ -15,10 +15,10 @@
 <nav class="submenu">
   <ul class="submenu-list" id=myBtnContainer>
 
-    <li><a class="btn active" onclick="filterSelection('all')" >ВСЕ</a></li>
-    {% for T in Types %}
-      <li><a class="btn" onclick="filterSelection('{{ T.name_en}}')" >{{ T.name_ua}}</a></li>
-    {% endfor %}
+    <li><a class="btn active" style="display:none;" onclick="filterSelection('all')" >ВСЕ</a></li>
+    <li><a class="btn" onclick="filterSelection('building')" >будівлі та споруди</a></li>
+    <li><a class="btn" onclick="filterSelection('interior')" >інтер'єр</a></li>
+    <li><a class="btn" onclick="filterSelection('floating')" >будинки на плаву</a></li>
   </ul>
 </nav>
 
@@ -28,8 +28,8 @@
     <div id="portfolio" class="containerP">
       {% for P in Project %}
 
-        <a href="{% url 'archproject' pk=P.pk %}">
-          <div class="tile {{ P.type}}">
+        <a href="{% url 'project' category=P.category pk=P.pk %}">
+          <div class="tile {{ P.category}}">
             <img src="{{ P.img.url }}" alt="" />
             <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
 
@@ -39,21 +39,6 @@
 
       {% endfor %}
 
-<!---            *2                     -->
-
-
-      {% for P in Project %}
-
-        <a href="{% url 'archproject' pk=P.pk %}">
-          <div class="tile {{ P.type}}">
-            <img src="{{ P.img.url }}" alt="" />
-            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
-
-            <div class="project-details"><p>{{ P.location_ua }} | {{ P.year }}</p></div>
-          </div>
-        </a>
-
-      {% endfor %}
     </div>
 
     <div style="clear:both;"></div>

@@ -14,28 +14,29 @@
 </section>
 
 <header>
-  <h2 class="second-header">about us</h2>
+  <h2 class="second-header">про нас</h2>
   <div class="line"></div>
 </header>
 
 <section class="about-section">
   <div class="text-block">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      Історія нашої майстерні почалася в 2003 році. Колектив формувався поступово, але цілеспрямовано і кожен у нас на своєму місці.
+      Основателем і безперервним ідейним лидером нашої команди є Чернятевчич Н.Г. - успішний архітектор та викладач КНУБА.
+      Під її чітким керівництвом і була створена основна лінія нашої проектної організації.
   </div>
   <div class="text-block">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    При створенні проектів наші архітектори використовують кращі комп'ютери та програмне забезпечення.
+    Завдяки цьому ми виконуємо нашу роботу швидко і якісно. Каждый из нас является самостоятельной творческой единицей,
+    при цьому ми добре і добре працюємо в команді. За нами багаторічний досвід співпраці з великими будівельними фірмами,
+    проектування котеджів, багатоквартирних будинків, інтер'єрів, малих архітектурних форм, ландшафтів, парків, і навіть
+    громадських та громадських будівель. Одним з важливих аспектів діяльності групи є взаємозв'язок із замовником.
+    Ми стараємось як можна краще прочитати і зрозуміти клієнта, впроваджуючи всі його бажання у створеному нами гармонічному архітектурному об'єднанню.
   </div>
 </section>
 
 
 <header>
-  <h2 class="second-header">last projects</h2>
+  <h2 class="second-header">останні проекти</h2>
   <div class="line"></div>
 </header>
 
@@ -43,11 +44,11 @@
 
   <div class="projects" >
     {% for P in Project %}
-      <a href="{% url 'archproject' pk=P.archproject.pk %}">
+      <a href="{% url 'project' pk=P.project.pk category=P.project.category %}">
         <div class="project-block">
           <div class="project-image-hover">
-            <div class="project-name"><h3>{{ P.archproject.name_ua }}</h3></div>
-            <div class="project-details"><p>{{ P.archproject.location_ua }} | {{ P.archproject.year }}</p></div>
+            <div class="project-name"><h3>{{ P.project.name_ua }}</h3></div>
+            <div class="project-details"><p>{{ P.project.location_ua }} | {{ P.project.year }}</p></div>
           </div>
           <div class="project-image" style="background-image:url('{{ P.img.url }}')"></div>
         </div>

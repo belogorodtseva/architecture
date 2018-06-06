@@ -4,29 +4,9 @@ from django.db import models
 import datetime
 from datetime import datetime
 
-###### ArchProjects-type #####
+###### InteriorType #####
 
-class ArchitectureType(models.Model):
-
-    title_en = models.CharField(max_length=40,blank=True, null=True)
-    title_ru = models.CharField(max_length=40,blank=True, null=True)
-    title_ua = models.CharField(max_length=40,blank=True, null=True)
-    description_en = models.TextField(max_length=150,blank=True, null=True)
-    description_ru = models.TextField(max_length=150,blank=True, null=True)
-    description_ua = models.TextField(max_length=150,blank=True, null=True)
-
-    name_en = models.CharField(max_length=100)
-    name_ru = models.CharField(max_length=100)
-    name_ua = models.CharField(max_length=100)
-
-
-    def __unicode__(self):
-        return '%s' % (unicode(self.name_en))
-
-
-###### DesignProjects-type #####
-
-class DesignType(models.Model):
+class InteriorType(models.Model):
 
     title_en = models.CharField(max_length=40,blank=True, null=True)
     title_ru = models.CharField(max_length=40,blank=True, null=True)
@@ -44,9 +24,48 @@ class DesignType(models.Model):
         return '%s' % (unicode(self.name_en))
 
 
-###### ArchProjects #####
+###### BuildingsType #####
 
-class ArchitectureProject(models.Model):
+class BuildingType(models.Model):
+
+    title_en = models.CharField(max_length=40,blank=True, null=True)
+    title_ru = models.CharField(max_length=40,blank=True, null=True)
+    title_ua = models.CharField(max_length=40,blank=True, null=True)
+    description_en = models.TextField(max_length=150,blank=True, null=True)
+    description_ru = models.TextField(max_length=150,blank=True, null=True)
+    description_ua = models.TextField(max_length=150,blank=True, null=True)
+
+    name_en = models.CharField(max_length=100)
+    name_ru = models.CharField(max_length=100)
+    name_ua = models.CharField(max_length=100)
+
+
+    def __unicode__(self):
+        return '%s' % (unicode(self.name_en))
+
+###### FloatingType #####
+
+class FloatingType(models.Model):
+
+    title_en = models.CharField(max_length=40,blank=True, null=True)
+    title_ru = models.CharField(max_length=40,blank=True, null=True)
+    title_ua = models.CharField(max_length=40,blank=True, null=True)
+    description_en = models.TextField(max_length=150,blank=True, null=True)
+    description_ru = models.TextField(max_length=150,blank=True, null=True)
+    description_ua = models.TextField(max_length=150,blank=True, null=True)
+
+    name_en = models.CharField(max_length=100)
+    name_ru = models.CharField(max_length=100)
+    name_ua = models.CharField(max_length=100)
+
+
+    def __unicode__(self):
+        return '%s' % (unicode(self.name_en))
+
+
+###### BuildingsProject #####
+
+class BuildingProject(models.Model):
 
     title_en = models.CharField(max_length=40,blank=True, null=True)
     title_ru = models.CharField(max_length=40,blank=True, null=True)
@@ -68,18 +87,20 @@ class ArchitectureProject(models.Model):
     img = models.FileField(blank=True, null=True)
 
 
-    type = models.ForeignKey(ArchitectureType, on_delete=models.CASCADE)
+    type = models.ForeignKey(BuildingType, blank=True, null=True)
 
     date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     active = models.BooleanField(default=True)
+
+    category = 'building'
 
 
     def __unicode__(self):
         return '%s - %s - %s' % (unicode(self.name_en), unicode(self.name_ru), unicode(self.name_ua))
 
-###### DesignProjects #####
+###### InteriorProject #####
 
-class DesignProject(models.Model):
+class InteriorProject(models.Model):
 
     title_en = models.CharField(max_length=40,blank=True, null=True)
     title_ru = models.CharField(max_length=40,blank=True, null=True)
@@ -100,25 +121,69 @@ class DesignProject(models.Model):
 
     img = models.FileField(blank=True, null=True)
 
-    type = models.ForeignKey(DesignType, on_delete=models.CASCADE)
+    type = models.ForeignKey(InteriorType, blank=True, null=True)
 
     date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     active = models.BooleanField(default=True)
+
+    category = 'interior'
 
 
     def __unicode__(self):
         return '%s - %s - %s' % (unicode(self.name_en), unicode(self.name_ru), unicode(self.name_ua))
 
-###### ArchProjects-photo #####
+###### FloatingProject #####
 
-class ArchitectureImage(models.Model):
-   project = models.ForeignKey(ArchitectureProject, on_delete=models.CASCADE)
+class FloatingProject(models.Model):
+
+    title_en = models.CharField(max_length=40,blank=True, null=True)
+    title_ru = models.CharField(max_length=40,blank=True, null=True)
+    title_ua = models.CharField(max_length=40,blank=True, null=True)
+    description_en = models.TextField(max_length=150,blank=True, null=True)
+    description_ru = models.TextField(max_length=150,blank=True, null=True)
+    description_ua = models.TextField(max_length=150,blank=True, null=True)
+
+    name_en = models.CharField(max_length=100)
+    name_ru = models.CharField(max_length=100)
+    name_ua = models.CharField(max_length=100)
+
+    location_en = models.CharField(max_length=200,blank=True, null=True)
+    location_ru = models.CharField(max_length=200,blank=True, null=True)
+    location_ua = models.CharField(max_length=200,blank=True, null=True)
+
+    year = models.CharField(max_length=9,blank=True, null=True)
+
+    img = models.FileField(blank=True, null=True)
+
+
+    type = models.ForeignKey(FloatingType, blank=True, null=True)
+
+    date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
+    active = models.BooleanField(default=True)
+
+    category = 'floating'
+
+
+    def __unicode__(self):
+        return '%s - %s - %s' % (unicode(self.name_en), unicode(self.name_ru), unicode(self.name_ua))
+
+
+###### InteriorProjects-photo #####
+
+class InteriorImage(models.Model):
+   project = models.ForeignKey(InteriorProject, on_delete=models.CASCADE)
    img = models.FileField(blank=True, null=True)
 
-###### DesignProjects-photo #####
+###### BuildingProjects-photo #####
 
-class DesignImage(models.Model):
-   project = models.ForeignKey(DesignProject, on_delete=models.CASCADE)
+class BuildingImage(models.Model):
+   project = models.ForeignKey(BuildingProject, on_delete=models.CASCADE)
+   img = models.FileField(blank=True, null=True)
+
+###### FloatingProjects-photo #####
+
+class FloatingImage(models.Model):
+   project = models.ForeignKey(FloatingProject, on_delete=models.CASCADE)
    img = models.FileField(blank=True, null=True)
 
 
@@ -136,8 +201,9 @@ class HomeImage(models.Model):
 
 class HomeProject(models.Model):
    number = models.IntegerField(default=1)
-   archproject = models.ForeignKey(ArchitectureProject, on_delete=models.CASCADE, blank=True, null=True)
+   buildingProject = models.ForeignKey(BuildingProject, on_delete=models.CASCADE, blank=True, null=True)
+   interiorProject = models.ForeignKey(InteriorProject, on_delete=models.CASCADE, blank=True, null=True)
    img = models.FileField(blank=False, null=False)
 
    def __unicode__(self):
-        return "# " + str(self.number) + " - " + unicode(self.archproject)
+        return "# " + str(self.number) + " - " + unicode(self.buildingProject) + unicode(self.interiorProject)

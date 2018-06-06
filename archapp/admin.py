@@ -8,28 +8,39 @@ from archapp.models import *
 
 admin.site.register(HomeImage)
 admin.site.register(HomeProject)
-admin.site.register(ArchitectureType)
-admin.site.register(DesignType)
+admin.site.register(BuildingType)
+admin.site.register(InteriorType)
+admin.site.register(FloatingType)
 
-class ArchitectureImageInline(admin.TabularInline):
-    model = ArchitectureImage
+class BuildingImageInline(admin.TabularInline):
+    model = BuildingImage
 
-class ArchitectureProjectAdmin(admin.ModelAdmin):
+class BuildingProjectAdmin(admin.ModelAdmin):
     inlines = [
-        ArchitectureImageInline,
+        BuildingImageInline,
     ]
 
-class DesignImageInline(admin.TabularInline):
-    model = DesignImage
+class InteriorImageInline(admin.TabularInline):
+    model = InteriorImage
 
-class DesignProjectAdmin(admin.ModelAdmin):
+class InteriorProjectAdmin(admin.ModelAdmin):
     inlines = [
-        DesignImageInline,
+        InteriorImageInline,
     ]
 
+class FloatingImageInline(admin.TabularInline):
+    model = FloatingImage
 
-admin.site.register(ArchitectureProject, ArchitectureProjectAdmin)
-admin.site.register(ArchitectureImage)
+class FloatingProjectAdmin(admin.ModelAdmin):
+    inlines = [
+        FloatingImageInline,
+    ]
 
-admin.site.register(DesignProject, DesignProjectAdmin)
-admin.site.register(DesignImage)
+admin.site.register(BuildingProject, BuildingProjectAdmin)
+admin.site.register(BuildingImage)
+
+admin.site.register(InteriorProject, InteriorProjectAdmin)
+admin.site.register(InteriorImage)
+
+admin.site.register(FloatingProject, FloatingProjectAdmin)
+admin.site.register(FloatingImage)
