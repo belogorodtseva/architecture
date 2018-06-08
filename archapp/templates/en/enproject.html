@@ -1,8 +1,8 @@
-{% extends "ua/index.html" %}
+{% extends "en/enindex.html" %}
 {% load staticfiles %}
 
 {% block headinua %}
-  <title>{% for P in Project %}{{ P.name_ua }}{% endfor %} | ARCHIPROJECTS</title>
+  <title>{% for P in Project %}{{ P.name_en }}{% endfor %} | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/project.css' %}"/>
       <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="{% static 'popup/magnific-popup.css' %}">
@@ -16,11 +16,11 @@
 <div class="lang">
   <ul class="lang-list">
     {% for P in Project %}
-    <li id="lang-ua" class="active-item"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
+    <li id="lang-ua"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
     <li>|</li>
     <li id="lang-ru"><a href="/ru/projects/{{P.category}}/{{P.pk}}/">RU</a></li>
     <li>|</li>
-    <li id="lang-en"><a href="/en/projects/{{P.category}}/{{P.pk}}/">EN</a></li>
+    <li id="lang-en" class="active-item"><a href="/en/projects/{{P.category}}/{{P.pk}}/">EN</a></li>
     {% endfor %}
   </ul>
 </div>
@@ -29,21 +29,21 @@
 
 <nav class="menu">
 <ul class="menu-list">
-<li id="menu-home"><a href="/">ГОЛОВНА</a></li>
-<li id="menu-projects" class="active-item"><a href="/projects/">ПРОЕКТИ</a></li>
-<li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
+<li id="menu-home"><a href="/en/">HOME</a></li>
+<li id="menu-projects" class="active-item"><a href="/en/projects/">PROJECTS</a></li>
+<li id="menu-contact"><a href="/en/contact/">CONTACT</a></li>
 </ul>
 </nav>
 
 
 <header class="projects-type">
   {% for P in Project %}
-  <h2 class="second-header">{{ P.name_ua }}</h2>
+  <h2 class="second-header">{{ P.name_en }}</h2>
   <div class="line"></div>
   <div class="project-line"></div>
   <p class="project-date"> {{ P.year }}</p>
-  <p class="project-place">{{ P.location_ua }}</p>
-  <p class="project-text">{{ P.description_ua }}</p>
+  <p class="project-place">{{ P.location_en }}</p>
+  <p class="project-text">{{ P.text_en }}</p>
   {% endfor %}
 </br>
 </header>
@@ -116,5 +116,6 @@ $(document).ready(function() {
     $("button").removeAttr("title");
 });
 </script>
+
 
 {% endblock %}

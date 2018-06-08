@@ -1,8 +1,8 @@
-{% extends "ua/index.html" %}
+{% extends "en/enindex.html" %}
 {% load staticfiles %}
 
 {% block headinua %}
-  <title>ПРОЕКТИ | ARCHIPROJECTS</title>
+  <title>PROJECTS | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
@@ -12,11 +12,11 @@
 {% block content %}
 <div class="lang">
   <ul class="lang-list">
-    <li id="lang-ua" class="active-item"><a href="/projects/">UA</a></li>
+    <li id="lang-ua"><a href="/projects/">UA</a></li>
     <li>|</li>
     <li id="lang-ru"><a href="/ru/projects/">RU</a></li>
     <li>|</li>
-    <li id="lang-en"><a href="/en/projects/">EN</a></li>
+    <li id="lang-en" class="active-item"><a href="/en/projects/">EN</a></li>
   </ul>
 </div>
 </div>
@@ -24,9 +24,9 @@
 
 <nav class="menu">
 <ul class="menu-list">
-<li id="menu-home"><a href="/">ГОЛОВНА</a></li>
-<li id="menu-projects" class="active-item"><a href="/projects/">ПРОЕКТИ</a></li>
-<li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
+<li id="menu-home" class="active-item"><a href="/en/">HOME</a></li>
+<li id="menu-projects"><a href="/en/projects/">PROJECTS</a></li>
+<li id="menu-contact"><a href="/en/contact/">CONTACT</a></li>
 </ul>
 </nav>
 
@@ -34,9 +34,9 @@
   <ul class="submenu-list" id=myBtnContainer>
 
     <li><a class="btn active" style="display:none;" onclick="filterSelection('all')" >ВСЕ</a></li>
-    <li><a class="btn" onclick="filterSelection('building')" >будівлі та споруди</a></li>
-    <li><a class="btn" onclick="filterSelection('interior')" >інтер'єр</a></li>
-    <li><a class="btn" onclick="filterSelection('floating')" >будинки на плаву</a></li>
+    <li><a class="btn" onclick="filterSelection('building')" >buildings and structures</a></li>
+    <li><a class="btn" onclick="filterSelection('interior')" >interior</a></li>
+    <li><a class="btn" onclick="filterSelection('floating')" >floating buildings</a></li>
   </ul>
 </nav>
 
@@ -46,12 +46,12 @@
     <div id="portfolio" class="containerP">
       {% for P in Project %}
 
-        <a href="{% url 'project' category=P.category pk=P.pk %}">
+        <a href="{% url 'enproject' category=P.category pk=P.pk %}">
           <div class="tile {{ P.category}}">
             <img src="{{ P.img.url }}" alt="" />
-            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
+            <div class="project-name"><h3>{{ P.name_en }}</h3></div>
 
-            <div class="project-details"><p>{{ P.location_ua }} | {{ P.year }}</p></div>
+            <div class="project-details"><p>{{ P.location_en }} | {{ P.year }}</p></div>
           </div>
         </a>
 
@@ -63,6 +63,7 @@
 
   </div>
 </section>
+
 
 <script>
 filterSelection("all")

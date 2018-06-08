@@ -15,9 +15,11 @@ from django.template.loader import get_template
 from itertools import chain
 
 def index(request):
+    projects = sorted(chain(BuildingProject.objects.all()[:3], InteriorProject.objects.all()[:2], FloatingProject.objects.all()[:1]),
+                    key=lambda instance: instance.date)
     content = {
         'Images' : HomeImage.objects.all().order_by('number'),
-        'Project' : HomeProject.objects.all().order_by('number')[:6],
+        'Project' : projects,
     }
     return render(request, 'ua/home.html', content)
 
@@ -66,42 +68,115 @@ def contact(request):
     }
     return render(request, 'ua/contact.html', content)
 
-
-
-### ru
+##################################     ru
 
 def ruindex(request):
-    return render(request, 'ru/ruhome.html')
+    projects = sorted(chain(BuildingProject.objects.all()[:3], InteriorProject.objects.all()[:2], FloatingProject.objects.all()[:1]),
+                    key=lambda instance: instance.date)
+    content = {
+        'Images' : HomeImage.objects.all().order_by('number'),
+        'Project' : projects,
+    }
+    return render(request, 'ru/ruhome.html', content)
 
 def ruprojects(request):
+    projects = sorted(chain(BuildingProject.objects.all(), InteriorProject.objects.all(), FloatingProject.objects.all()),
+                    key=lambda instance: instance.date)
     content = {
-        #'Projects' : Project.objects.all().order_by('name_ru'),
+        'Project' : projects,
     }
+
     return render(request, 'ru/ruprojects.html', content)
 
-def rucontact(request):
+def ruproject(request, category, pk):
+    if category=='building':
+        project = BuildingProject.objects.filter(pk=pk)
+        images = BuildingImage.objects.all().filter(project=pk)
+    elif category=='interior':
+        project = InteriorProject.objects.filter(pk=pk)
+        images = InteriorImage.objects.all().filter(project=pk)
+    else:
+        project = FloatingProject.objects.filter(pk=pk)
+        images = FloatingImage.objects.all().filter(project=pk)
     content = {
+        'Project' : project,
+        'Images' : images,
+    }
+    return render(request, 'ru/ruproject.html', content)
 
+
+def rucontact(request):
+    form = ContactForm(request.POST or None)
+    print(form)
+    if form.is_valid():
+        name = form.cleaned_data.get('name')
+        email = form.cleaned_data.get('email')
+        subject = "Вопрос на сайте"
+        message = form.cleaned_data.get('message')
+        from_email = settings.EMAIL_HOST_USER
+        contact_message= "Name: \n%s \n\nMessage: \n%s \n\n From %s"%(
+                name,
+                message,
+                email)
+        send_mail(subject,contact_message,from_email,['chernyatevich@gmail.com'],fail_silently=False)
+    content = {
+        'form': form,
     }
     return render(request, 'ru/rucontact.html', content)
 
 
-
-### en
+##################################     en
 
 def enindex(request):
-    return render(request, 'en/enhome.html')
-
+    projects = sorted(chain(BuildingProject.objects.all()[:3], InteriorProject.objects.all()[:2], FloatingProject.objects.all()[:1]),
+                    key=lambda instance: instance.date)
+    content = {
+        'Images' : HomeImage.objects.all().order_by('number'),
+        'Project' : projects,
+    }
+    return render(request, 'en/enhome.html', content)
 
 def enprojects(request):
+    projects = sorted(chain(BuildingProject.objects.all(), InteriorProject.objects.all(), FloatingProject.objects.all()),
+                    key=lambda instance: instance.date)
     content = {
-        #'Projects' : Project.objects.all().order_by('name_en'),
+        'Project' : projects,
     }
+
     return render(request, 'en/enprojects.html', content)
+
+def enproject(request, category, pk):
+    if category=='building':
+        project = BuildingProject.objects.filter(pk=pk)
+        images = BuildingImage.objects.all().filter(project=pk)
+    elif category=='interior':
+        project = InteriorProject.objects.filter(pk=pk)
+        images = InteriorImage.objects.all().filter(project=pk)
+    else:
+        project = FloatingProject.objects.filter(pk=pk)
+        images = FloatingImage.objects.all().filter(project=pk)
+    content = {
+        'Project' : project,
+        'Images' : images,
+    }
+    return render(request, 'en/enproject.html', content)
 
 
 def encontact(request):
+    form = ContactForm(request.POST or None)
+    print(form)
+    if form.is_valid():
+        name = form.cleaned_data.get('name')
+        email = form.cleaned_data.get('email')
+        subject = "Вопрос на сайте"
+        message = form.cleaned_data.get('message')
+        from_email = settings.EMAIL_HOST_USER
+        contact_message= "Name: \n%s \n\nMessage: \n%s \n\n From %s"%(
+                name,
+                message,
+                email)
+        send_mail(subject,contact_message,from_email,['chernyatevich@gmail.com'],fail_silently=False)
     content = {
-
+        'form': form,
     }
     return render(request, 'en/encontact.html', content)

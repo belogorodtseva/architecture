@@ -1,8 +1,8 @@
-{% extends "ua/index.html" %}
+{% extends "ru/ruindex.html" %}
 {% load staticfiles %}
 
 {% block headinua %}
-  <title>{% for P in Project %}{{ P.name_ua }}{% endfor %} | ARCHIPROJECTS</title>
+  <title>{% for P in Project %}{{ P.name_ru }}{% endfor %} | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/project.css' %}"/>
       <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="{% static 'popup/magnific-popup.css' %}">
@@ -16,9 +16,9 @@
 <div class="lang">
   <ul class="lang-list">
     {% for P in Project %}
-    <li id="lang-ua" class="active-item"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
+    <li id="lang-ua"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
     <li>|</li>
-    <li id="lang-ru"><a href="/ru/projects/{{P.category}}/{{P.pk}}/">RU</a></li>
+    <li id="lang-ru" class="active-item"><a href="/ru/projects/{{P.category}}/{{P.pk}}/">RU</a></li>
     <li>|</li>
     <li id="lang-en"><a href="/en/projects/{{P.category}}/{{P.pk}}/">EN</a></li>
     {% endfor %}
@@ -29,21 +29,21 @@
 
 <nav class="menu">
 <ul class="menu-list">
-<li id="menu-home"><a href="/">ГОЛОВНА</a></li>
-<li id="menu-projects" class="active-item"><a href="/projects/">ПРОЕКТИ</a></li>
-<li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
+<li id="menu-home"><a href="/ru/">ГЛАВНАЯ</a></li>
+<li id="menu-projects" class="active-item"><a href="/ru/projects/">ПРОЕКТЫ</a></li>
+<li id="menu-contact"><a href="/ru/contact/">КОНТАКТЫ</a></li>
 </ul>
 </nav>
 
 
 <header class="projects-type">
   {% for P in Project %}
-  <h2 class="second-header">{{ P.name_ua }}</h2>
+  <h2 class="second-header">{{ P.name_ru }}</h2>
   <div class="line"></div>
   <div class="project-line"></div>
   <p class="project-date"> {{ P.year }}</p>
-  <p class="project-place">{{ P.location_ua }}</p>
-  <p class="project-text">{{ P.description_ua }}</p>
+  <p class="project-place">{{ P.location_ru }}</p>
+  <p class="project-text">{{ P.text_ru }}</p>
   {% endfor %}
 </br>
 </header>

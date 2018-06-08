@@ -82,6 +82,10 @@ class BuildingProject(models.Model):
     location_ru = models.CharField(max_length=200,blank=True, null=True)
     location_ua = models.CharField(max_length=200,blank=True, null=True)
 
+    text_en = models.TextField(max_length=500,blank=True, null=True)
+    text_ru = models.TextField(max_length=500,blank=True, null=True)
+    text_ua = models.TextField(max_length=500,blank=True, null=True)
+
     year = models.CharField(max_length=9,blank=True, null=True)
 
     img = models.FileField(blank=True, null=True)
@@ -117,9 +121,13 @@ class InteriorProject(models.Model):
     location_ru = models.CharField(max_length=200,blank=True, null=True)
     location_ua = models.CharField(max_length=200,blank=True, null=True)
 
+    text_en = models.TextField(max_length=500,blank=True, null=True)
+    text_ru = models.TextField(max_length=500,blank=True, null=True)
+    text_ua = models.TextField(max_length=500,blank=True, null=True)
+
     year = models.CharField(max_length=9,blank=True, null=True)
 
-    img = models.FileField(blank=True, null=True)
+    img = models.FileField(blank=False, null=False)
 
     type = models.ForeignKey(InteriorType, blank=True, null=True)
 
@@ -150,6 +158,10 @@ class FloatingProject(models.Model):
     location_en = models.CharField(max_length=200,blank=True, null=True)
     location_ru = models.CharField(max_length=200,blank=True, null=True)
     location_ua = models.CharField(max_length=200,blank=True, null=True)
+
+    text_en = models.TextField(max_length=500,blank=True, null=True)
+    text_ru = models.TextField(max_length=500,blank=True, null=True)
+    text_ua = models.TextField(max_length=500,blank=True, null=True)
 
     year = models.CharField(max_length=9,blank=True, null=True)
 
@@ -197,13 +209,12 @@ class HomeImage(models.Model):
         return "# " + str(self.number)
 
 
-###### Home-project #####
+# ###### Home-project #####
 
-class HomeProject(models.Model):
-   number = models.IntegerField(default=1)
-   buildingProject = models.ForeignKey(BuildingProject, on_delete=models.CASCADE, blank=True, null=True)
-   interiorProject = models.ForeignKey(InteriorProject, on_delete=models.CASCADE, blank=True, null=True)
-   img = models.FileField(blank=False, null=False)
-
-   def __unicode__(self):
-        return "# " + str(self.number) + " - " + unicode(self.buildingProject) + unicode(self.interiorProject)
+# class HomeProject(models.Model):
+#    number = models.IntegerField(default=1)
+#    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+#    img = models.FileField(blank=False, null=False)
+#
+#    def __unicode__(self):
+#         return "# " + str(self.number) + " - " + unicode(self.buildingProject)

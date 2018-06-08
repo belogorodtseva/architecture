@@ -1,4 +1,4 @@
-{% extends "ru/ruindex.html" %}
+{% extends "ua/index.html" %}
 {% load staticfiles %}
 {% block headinua %}
   <title>ГЛАВНАЯ | ARCHIPROJECTS</title>
@@ -6,8 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<section class="main-gallery">
-  <div class="gallery-item" style="background-image:url('/media/new.jpg')">
+
+    <div class="lang">
+      <ul class="lang-list">
+        <li id="lang-ua"><a href="/">UA</a></li>
+        <li>|</li>
+        <li id="lang-ru" class="active-item"><a href="/ru/">RU</a></li>
+        <li>|</li>
+        <li id="lang-en"><a href="/en/">EN</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<nav class="menu">
+  <ul class="menu-list">
+    <li id="menu-home" class="active-item"><a href="/">ГЛАВНАЯ</a></li>
+    <li id="menu-projects"><a href="/ru/projects/">ПРОЕКТЫ</a></li>
+    <li id="menu-contact"><a href="/ru/contact/">КОНТАКТЫ</a></li>
+  </ul>
+</nav>
+
+
+<section id="slider">
+  {% for I in Images %}
+      <div class="gallery-item" style="background-image:url('{{ I.img.url }}')"></div>
+  {% endfor %}
+
 </section>
 
 <header>
@@ -17,68 +42,41 @@
 
 <section class="about-section">
   <div class="text-block">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      История нашей мастерской началась в 2003 году.  Коллектив формировался постепенно, но целенаправленно и каждый у нас на своём месте.
+      Основателем и бессменным идейным лидером  нашей команды является Чернятивич Н.Г. – успешный архитектор и преподаватель КНУСиА .
+      Под ее   четким  руководством и была сформирована основная линия нашей проектной организации.
   </div>
   <div class="text-block">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    При создании проектов, наши архитекторы используют лучшие компьютеры и программное обеспечение.
+    Благодаря этому мы выполняем нашу работу быстро и качественно. Каждый из нас является самостоятельной творческой единицей,
+    при этом мы слажено и грамотно работаем  в команде. За нами многолетний опыт сотрудничества с крупными строительными фирмами,
+    проектирование   коттеджей, многоквартирных домов, интерьеров, малых архитектурных форм, ландшафтов, парков, и даже гражданских
+    и общественных зданий. Одним из важнейших  аспектов   деятельности  группы является взаимосвязь с заказчиком.  Мы стараемся
+    как можно лучше прочувствовать и понять клиента, внедряя все его  желания в создаваемый нами гармоничный архитектурный ансамбль.
   </div>
 </section>
 
 
 <header>
-  <h2 class="second-header">послудние проекты</h2>
+  <h2 class="second-header">последние проекти</h2>
   <div class="line"></div>
 </header>
 
 <section class="last-projects">
 
   <div class="projects" >
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Название проекта</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Название проекта</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Название проекта</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Название проекта</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Название проекта</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-    <a href="">
-      <div class="project-block">
-        <div class="project-image-hover"> <div class="project-name">Название проекта</div> </div>
-        <div class="project-image" style="background-image:url('/media/new.jpg')"></div>
-      </div>
-    </a>
-  </div>
+    {% for P in Project %}
+      <a href="{% url 'ruproject' pk=P.pk category=P.category %}">
+        <div class="project-block">
+          <div class="project-image-hover">
+            <div class="project-name"><h3>{{ P.name_ru }}</h3></div>
+            <div class="project-details"><p>{{ P.location_ru }} | {{ P.year }}</p></div>
+          </div>
+          <div class="project-image" style="background-image:url('{{ P.img.url }}')"></div>
+        </div>
+      </a>
+    {% endfor %}
 </section>
-
 
 {% endblock %}
 
@@ -87,5 +85,36 @@
   $('.project-block').hover(function(){
       $(this).toggleClass('active-image');
   });
+</script>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("gallery-item");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(function() {
+        fade();
+    },4500);
+
+    setTimeout(function() {
+        carousel();
+    },5000);
+}
+
+function fade() {
+    document.getElementById('slider').className = "fadeOut";
+    setTimeout(function() {
+        document.getElementById('slider').className = "";
+    },500);
+}
+
 </script>
 {% endblock %}

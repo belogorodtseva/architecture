@@ -7,7 +7,7 @@ from archapp.models import *
 
 
 admin.site.register(HomeImage)
-admin.site.register(HomeProject)
+# admin.site.register(HomeProject)
 admin.site.register(BuildingType)
 admin.site.register(InteriorType)
 admin.site.register(FloatingType)

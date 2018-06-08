@@ -6,6 +6,27 @@
 {% endblock %}
 
 {% block content %}
+    <div class="lang">
+      <ul class="lang-list">
+        <li id="lang-ua" class="active-item"><a href="/">UA</a></li>
+        <li>|</li>
+        <li id="lang-ru"><a href="/ru/">RU</a></li>
+        <li>|</li>
+        <li id="lang-en"><a href="/en/">EN</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<nav class="menu">
+  <ul class="menu-list">
+    <li id="menu-home" class="active-item"><a href="/">ГОЛОВНА</a></li>
+    <li id="menu-projects"><a href="/projects/">ПРОЕКТИ</a></li>
+    <li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
+  </ul>
+</nav>
+
+
 <section id="slider">
   {% for I in Images %}
       <div class="gallery-item" style="background-image:url('{{ I.img.url }}')"></div>
@@ -44,11 +65,11 @@
 
   <div class="projects" >
     {% for P in Project %}
-      <a href="{% url 'project' pk=P.project.pk category=P.project.category %}">
+      <a href="{% url 'project' pk=P.pk category=P.category %}">
         <div class="project-block">
           <div class="project-image-hover">
-            <div class="project-name"><h3>{{ P.project.name_ua }}</h3></div>
-            <div class="project-details"><p>{{ P.project.location_ua }} | {{ P.project.year }}</p></div>
+            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
+            <div class="project-details"><p>{{ P.location_ua }} | {{ P.year }}</p></div>
           </div>
           <div class="project-image" style="background-image:url('{{ P.img.url }}')"></div>
         </div>
@@ -65,12 +86,6 @@
   });
 </script>
 
-<script>
-  $(document).ready(function(){
-      $(".menu-list li").removeClass("active-item");
-      $("#menu-home").addClass("active-item");
-  });
-</script>
 
 <script>
 var myIndex = 0;

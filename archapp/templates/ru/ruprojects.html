@@ -1,8 +1,8 @@
-{% extends "ua/index.html" %}
+{% extends "ru/ruindex.html" %}
 {% load staticfiles %}
 
 {% block headinua %}
-  <title>ПРОЕКТИ | ARCHIPROJECTS</title>
+  <title>ПРОЕКТЫ | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/projects.css' %}"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
@@ -12,9 +12,9 @@
 {% block content %}
 <div class="lang">
   <ul class="lang-list">
-    <li id="lang-ua" class="active-item"><a href="/projects/">UA</a></li>
+    <li id="lang-ua"><a href="/projects/">UA</a></li>
     <li>|</li>
-    <li id="lang-ru"><a href="/ru/projects/">RU</a></li>
+    <li id="lang-ru" class="active-item"><a href="/ru/projects/">RU</a></li>
     <li>|</li>
     <li id="lang-en"><a href="/en/projects/">EN</a></li>
   </ul>
@@ -24,9 +24,9 @@
 
 <nav class="menu">
 <ul class="menu-list">
-<li id="menu-home"><a href="/">ГОЛОВНА</a></li>
-<li id="menu-projects" class="active-item"><a href="/projects/">ПРОЕКТИ</a></li>
-<li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
+<li id="menu-home"><a href="/ru/">ГЛАВНАЯ</a></li>
+<li id="menu-projects" class="active-item"><a href="/ru/projects/">ПРОЕКТЫ</a></li>
+<li id="menu-contact"><a href="/ru/contact/">КОНТАКТЫ</a></li>
 </ul>
 </nav>
 
@@ -34,9 +34,9 @@
   <ul class="submenu-list" id=myBtnContainer>
 
     <li><a class="btn active" style="display:none;" onclick="filterSelection('all')" >ВСЕ</a></li>
-    <li><a class="btn" onclick="filterSelection('building')" >будівлі та споруди</a></li>
-    <li><a class="btn" onclick="filterSelection('interior')" >інтер'єр</a></li>
-    <li><a class="btn" onclick="filterSelection('floating')" >будинки на плаву</a></li>
+    <li><a class="btn" onclick="filterSelection('building')" >здания и сооружения</a></li>
+    <li><a class="btn" onclick="filterSelection('interior')" >интерьер</a></li>
+    <li><a class="btn" onclick="filterSelection('floating')" >дома на плаву</a></li>
   </ul>
 </nav>
 
@@ -46,12 +46,12 @@
     <div id="portfolio" class="containerP">
       {% for P in Project %}
 
-        <a href="{% url 'project' category=P.category pk=P.pk %}">
+        <a href="{% url 'ruproject' category=P.category pk=P.pk %}">
           <div class="tile {{ P.category}}">
             <img src="{{ P.img.url }}" alt="" />
-            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
+            <div class="project-name"><h3>{{ P.name_ru }}</h3></div>
 
-            <div class="project-details"><p>{{ P.location_ua }} | {{ P.year }}</p></div>
+            <div class="project-details"><p>{{ P.location_ru }} | {{ P.year }}</p></div>
           </div>
         </a>
 

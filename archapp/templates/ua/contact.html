@@ -8,24 +8,44 @@
 
 
 {% block content %}
+<div class="lang">
+  <ul class="lang-list">
+    <li id="lang-ua" class="active-item"><a href="/contact/">UA</a></li>
+    <li>|</li>
+    <li id="lang-ru"><a href="/ru/contact/">RU</a></li>
+    <li>|</li>
+    <li id="lang-en"><a href="/en/contact/">EN</a></li>
+  </ul>
+</div>
+</div>
+</header>
+
+<nav class="menu">
+<ul class="menu-list">
+<li id="menu-home"><a href="/">ГОЛОВНА</a></li>
+<li id="menu-projects"><a href="/projects/">ПРОЕКТИ</a></li>
+<li id="menu-contact" class="active-item"><a href="/contact/">КОНТАКТИ</a></li>
+</ul>
+</nav>
+
 <div class="contact-wrap">
 
       <div class="contactform">
-        <h3 class="form-header">Связаться</h3>
+        <h3 class="form-header">Написать нам</h3>
           <form id="form" method="post">
               {% csrf_token %}
-              <input type="text" name="name" required id="id_name" placeholder="Имя"/>
+              <input type="text" name="name" required id="id_name" placeholder="Iм`я"/>
               <input type="email" name="email" id="id_email" placeholder="E_MAIL"/>
-              <textarea type="text" name="message" required id="id_message" placeholder="Сообщение"></textarea>
+              <textarea type="text" name="message" required id="id_message" placeholder="Повiдомлення"></textarea>
 
               <div class="form-actions">
-                  <input id="submit" type="submit" value="ОТПРАВИТЬ">
+                  <input id="submit" type="submit" value="НАДIСЛАТИ">
               </div>
           </form>
      </div>
 
      <div class="contactinfo">
-       <h3 class="form-header">Наши контакты</h3>
+       <h3 class="form-header">Нашi контакти</h3>
        <div class=line></div>
        <p class="contact-link"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +380934570504</p>
        <p class="contact-link"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +380934570504</p>
@@ -38,11 +58,5 @@
 
 </div>
 
-<script>
-  $(document).ready(function(){
-      $(".menu-list li").removeClass("active-item");
-      $("#menu-contact").addClass("active-item");
-  });
-</script>
 
 {% endblock %}
