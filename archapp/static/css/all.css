@@ -13,6 +13,22 @@
 }
 
 
+@font-face {
+  font-family: 'Open-Sans';
+  src: url("fonts/Open-Sans.ttf");
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url("fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url("fonts/Roboto-Light.ttf");
+}
+
+
 * {
   box-sizing: border-box;
   outline: none;
@@ -20,11 +36,10 @@
 
 body {
   margin: 0;
-  font-family: GT-Walsheim-Pro-Trial-Thin, sans-serif;
+  font-family: Roboto-Thin, sans-serif;
   position: relative;
   padding-bottom: 70px;
 }
-
 a {
   text-decoration: none;
 }
@@ -117,6 +132,7 @@ footer .container {
 }
 
 .mainlogo a {
+    font-family: Roboto-Thin, sans-serif;
   color: #464646;
   font-size: 30px;
   line-height: 50px;
