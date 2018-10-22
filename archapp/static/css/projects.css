@@ -64,7 +64,7 @@
 .submenu-list a, .submenu-list li {
   color: #999;
   line-height: 27px;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
 }
 
@@ -197,19 +197,6 @@
   background-color: rgba(243, 243, 243, 0.788235294117647);
 }
 
-.project-details  {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  z-index: 6;
-  transition: .5s ease;
-}
-
 .tile:hover .project-name {
   opacity: 1;
   transition: all .5s ease;
@@ -218,27 +205,12 @@
 .project-name h3 {
   margin: 0;
   position: absolute;
-  bottom: 45px;
-  left: 20px;
-  color: #464646;
-  font-size: 27px;
-  font-weight: 400;
-}
-
-.tile:hover .project-details {
-  opacity: 1;
-}
-
-.project-details p {
-  margin: 0;
-  position: absolute;
   bottom: 20px;
   left: 20px;
   color: #464646;
-  font-size: 20px;
-  font-weight: 100;
+  font-size: 24px;
+  font-weight: bold;
 }
-
 
 @media (max-width: 767px) {
   .tile {

@@ -37,6 +37,19 @@
 .projects a {
   margin-top: 30px;
 }
+
+
+@media (max-width: 767px) {
+  #slider {
+    height: 200px;
+  }
+
+  .gallery-item {
+    height: 200px;
+  }
+}
+
+
 @media (min-width: 768px) {
   .last-projects, .about-section {
       width: 750px;
@@ -70,11 +83,11 @@
   margin: 5px;
   margin-top: 20px;
   color: #464646;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: bold;
   line-height: 50px;
   text-align: center;
   text-transform: uppercase;
-  font-weight: normal;
 }
 
 .line {
@@ -143,36 +156,14 @@
   z-index: 6;
 }
 
-.project-details  {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 6;
-  transition: .5s ease;
-}
-
 .project-name h3 {
-  margin: 0;
-  position: absolute;
-  bottom: 45px;
-  left: 20px;
-  color: #464646;
-  font-size: 27px;
-  font-weight: 400;
-}
-
-.project-details p {
   margin: 0;
   position: absolute;
   bottom: 20px;
   left: 20px;
   color: #464646;
-  font-size: 20px;
-  font-weight: 100;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .last-projects {

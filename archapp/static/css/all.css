@@ -283,7 +283,8 @@ footer .container {
 .menu-list a, .menu-list li {
   color: #999;
   line-height: 30px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: bold;
   text-transform: uppercase;
 }
 

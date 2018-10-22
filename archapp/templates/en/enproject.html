@@ -41,9 +41,21 @@
   <h2 class="second-header">{{ P.name_en }}</h2>
   <div class="line"></div>
   <div class="project-line"></div>
-  <p class="project-date"> {{ P.year }}</p>
-  <p class="project-place">{{ P.location_en }}</p>
-  <p class="project-text">{{ P.text_en }}</p>
+  {% if P.year_en %}
+    <p class="project-date"> {{ P.year_en }}</p>
+  {% endif %}
+  {% if P.location_en %}
+    <p class="project-text">Location: {{ P.location_en }}</p>
+  {% endif %}
+  {% if P.architectors_en %}
+    <p class="project-text">Architectors: {{ P.architectors_en }}</p>
+  {% endif %}
+  {% if P.photo_en %}
+    <p class="project-text">Photo: {{ P.photo_en }}</p>
+  {% endif %}
+  {% if P.description_en %}
+    <p class="project-text">{{ P.description_en }}</p>
+  {% endif %}
   {% endfor %}
 </br>
 </header>
