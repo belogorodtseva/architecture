@@ -1,1 +1,12 @@
-<?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="50" width="50"/><polygon points="35,47.25 37.086,45.164 16.922,25 37.086,4.836 35,2.75 12.75,25 "/><rect fill="none" height="50" width="50"/></svg>
+<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_1" width="50" height="50" fill="none"/>
+  <polygon transform="rotate(179.9749755859375 25.268001556396484,24.9379997253418) " stroke="null" fill="#ffffff" id="svg_2" points="16.778519550740384,6.222027778625488 15.022016525268555,7.976702690124512 32.000981481736744,24.937999725341797 15.022016525268555,41.89929962158203 16.778519550740384,43.65397262573242 35.5139875326804,24.937999725341797 "/>
+ </g>
+</svg>

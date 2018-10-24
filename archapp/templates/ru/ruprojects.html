@@ -47,7 +47,7 @@
     <div id="portfolio" class="containerP">
       {% for P in Project %}
 
-        <a href="{% url 'project' category=P.category pk=P.pk %}">
+        <a href="{% url 'ruproject' category=P.category pk=P.pk %}">
           <div class="tile {{ P.category}}">
             <img src="{{ P.img.url }}" alt="" />
             <div class="project-name"><h3>{{ P.name_ru }}</h3></div>

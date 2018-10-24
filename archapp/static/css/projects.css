@@ -1,8 +1,4 @@
 /*submenu*/
-.submenu {
-  border-bottom: 1px solid #bebebe;
-}
-
 .submenu-list {
     position: relative;
     margin: 5px;
@@ -208,7 +204,7 @@
   bottom: 20px;
   left: 20px;
   color: #464646;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
 
