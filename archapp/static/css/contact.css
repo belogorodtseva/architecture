@@ -23,9 +23,9 @@ input, textarea {
 
 .contactform input, .contactform textarea {
   border: 1px solid #bebebe;
-  font-size: 15px;
+  font-size: 13px;
   color: #464646;
-  padding: 1vh;
+  padding: 5px;
   margin-bottom: 2vh;
   display: block;
   width: 100%;
@@ -36,7 +36,7 @@ input, textarea {
   margin: 5px;
   margin-top: 20px;
   color: #464646;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 50px;
   text-transform: uppercase;
   font-weight: normal;
