@@ -28,32 +28,28 @@
 </ul>
 </nav>
 
-<div class="contact-wrap">
+<header>
+  <h2 class="second-header">Нашi контакти</h2>
+</header>
 
-      <div class="contactform">
-        <h3 class="form-header">Написать нам</h3>
-          <form id="form" method="post">
-              {% csrf_token %}
-              <input type="text" name="name" required id="id_name" placeholder="Iм`я"/>
-              <input type="email" name="email" id="id_email" placeholder="E_MAIL"/>
-              <textarea type="text" name="message" required id="id_message" placeholder="Повiдомлення"></textarea>
+<section class="contact-section">
+  <div class="contactform">
+    <h3 class="form-header">Написати нам</h3>
+      <form id="form" method="post">
+          {% csrf_token %}
+          <input type="text" name="name" required id="id_name" placeholder="Iм`я"/>
+          <input type="email" name="email" id="id_email" placeholder="E_MAIL"/>
+          <textarea type="text" name="message" required id="id_message" placeholder="Повiдомлення"></textarea>
 
-              <div class="form-actions">
-                  <input id="submit" type="submit" value="НАДIСЛАТИ">
-              </div>
-          </form>
-     </div>
-
-     <div class="contactinfo">
-       <h3 class="form-header">Нашi контакти</h3>
-       <p class="contact-link"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +380934570504</p>
-       <p class="contact-link"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +380934570504</p>
-       <p class="contact-link"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> +380934570504</p>
-       <p class="contact-link"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> office@archiproject.com.ua</p>
-       <p class="contact-link"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> office@archiproject.com.ua</p>
-    </div>
-
-</div>
-
+          <div class="form-actions">
+              <input id="submit" type="submit" value="НАДIСЛАТИ">
+          </div>
+      </form>
+ </div>
+ <div class="contactinfo">
+     <p class="contact-link">+380934570504</p>
+     <p class="contact-link">office@archiproject.com.ua</p>
+  </div>
+</section>
 
 {% endblock %}

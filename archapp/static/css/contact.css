@@ -1,11 +1,29 @@
-.contact-wrap {
+.contact-section, .form-header {
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
+}
+
+.form-header {
+  color: #999;
+}
+
+
+.second-header{
+  margin: 5px;
+  margin-top: 20px;
+  color: #464646;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .contactform {
-  width: 48%;
-  float: left;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 input, textarea {
@@ -13,12 +31,9 @@ input, textarea {
 }
 
 .contactinfo {
-  width: 48%;
-  float: right;
-}
-
-.line {
-  border-bottom: 1px solid #bebebe;
+width: 100%;
+margin-right: auto;
+margin-left: auto;
 }
 
 .contactform input, .contactform textarea {
@@ -30,16 +45,6 @@ input, textarea {
   display: block;
   width: 100%;
   border-radius: 0;
-}
-
-.form-header {
-  margin: 5px;
-  margin-top: 20px;
-  color: #464646;
-  font-size: 16px;
-  line-height: 50px;
-  text-transform: uppercase;
-  font-weight: normal;
 }
 
 .contactform textarea {
@@ -74,20 +79,7 @@ input, textarea {
 }
 
 
-@media (min-width: 768px) {
-  .contact-wrap {
-      width: 750px;
+  .contact-section {
+      max-width: 550px;
+      padding: 10px;
   }
-}
-
-@media (min-width: 992px) {
-  .contact-wrap {
-      width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .contact-wrap {
-      width: 1170px;
-  }
-}
