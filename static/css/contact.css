@@ -8,6 +8,10 @@
   float: left;
 }
 
+input, textarea {
+  font-family: Roboto-Thin, sans-serif;
+}
+
 .contactinfo {
   width: 48%;
   float: right;
@@ -18,12 +22,10 @@
 }
 
 .contactform input, .contactform textarea {
-  background-color: rgba(190, 190, 190, 0.12);
-  border: 0;
-  border-left: 1px solid #bebebe;
-  font-size: 15px;
+  border: 1px solid #bebebe;
+  font-size: 13px;
   color: #464646;
-  padding: 1vh;
+  padding: 5px;
   margin-bottom: 2vh;
   display: block;
   width: 100%;
@@ -34,7 +36,7 @@
   margin: 5px;
   margin-top: 20px;
   color: #464646;
-  font-size: 22px;
+  font-size: 16px;
   line-height: 50px;
   text-transform: uppercase;
   font-weight: normal;
@@ -46,20 +48,29 @@
 }
 
 .contactform input:hover, .contactform textarea:hover {
-  outline: 1px solid #bebebe;
+  border: 1px solid #999;
 }
 
 .contactform input:focus, .contactform textarea:focus {
-  outline: 1px solid #bebebe;
+  border: 1px solid #999;
+}
+
+#submit {
+  background-color: #f3f3f3;
 }
 
 #submit:hover {
-  background-color: #bebebe;
-  color: #f3f3f3;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #999;
 }
 
 .form-actions {
   padding-bottom: 2vh;
+}
+
+.contact-link {
+  font-size: 13px;
 }
 
 
