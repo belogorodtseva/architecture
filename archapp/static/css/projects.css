@@ -57,8 +57,9 @@
 
 
 .submenu-list li {
-  float: left;
-  margin-left: 5px;
+  width: 20%;
+  text-align: center;
+  margin: 0;
 }
 
 .submenu-list a, .submenu-list li {

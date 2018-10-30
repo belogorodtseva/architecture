@@ -11,9 +11,9 @@
 <div class="lang">
   <ul class="lang-list">
     <li id="lang-ua" class="active-item"><a href="/contact/">UA</a></li>
-    <li>|</li>
+    <li class="lang-none">|</li>
     <li id="lang-ru"><a href="/ru/contact/">RU</a></li>
-    <li>|</li>
+    <li class="lang-none">|</li>
     <li id="lang-en"><a href="/en/contact/">EN</a></li>
   </ul>
 </div>
@@ -33,23 +33,54 @@
 </header>
 
 <section class="contact-section">
+  <div class="contactlinks">
+      <div class="contactlink-uno">
+        <div class='contact-icon'>
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class='contact-name'>Телефон</div>
+        <div class='contact-text'>+38(093) 457 05 04</div>
+      </div>
+
+      <div class="contactlink-uno">
+        <div class='contact-icon'>
+          <i class="far fa-envelope"></i>
+        </div>
+        <div class='contact-name'>e-mail</div>
+        <div class='contact-text'>office@archiproject.com.ua</div>
+      </div>
+
+      <div class="contactlink-uno">
+        <div class='contact-icon'>
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class='contact-name'>facebook</div>
+      </div>
+
+      <div class="contactlink-uno">
+        <div class='contact-icon'>
+          <i class="fab fa-instagram"></i>
+        </div>
+        <div class='contact-name'>instagram</div>
+        <div class='contact-text'>archiproject_ukraine</div>
+      </div>
+   </div>
+
   <div class="contactform">
     <h3 class="form-header">Написати нам</h3>
       <form id="form" method="post">
           {% csrf_token %}
-          <input type="text" name="name" required id="id_name" placeholder="Iм`я"/>
-          <input type="email" name="email" id="id_email" placeholder="E_MAIL"/>
-          <textarea type="text" name="message" required id="id_message" placeholder="Повiдомлення"></textarea>
+          <div class="form-group">
+            <input class="form-half" type="text" name="name" required id="id_name" placeholder="Iм`я"/>
+            <input class="form-half" type="email" name="email" id="id_email" placeholder="E_MAIL"/>
+          </div>
+          <textarea class="form-full" type="text" name="message" required id="id_message" placeholder="Повiдомлення"></textarea>
 
           <div class="form-actions">
               <input id="submit" type="submit" value="НАДIСЛАТИ">
           </div>
       </form>
  </div>
- <div class="contactinfo">
-     <p class="contact-link">+380934570504</p>
-     <p class="contact-link">office@archiproject.com.ua</p>
-  </div>
 </section>
 
 {% endblock %}

@@ -17,9 +17,9 @@
   <ul class="lang-list">
     {% for P in Project %}
     <li id="lang-ua" class="active-item"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
-    <li>|</li>
+    <li class="lang-none">|</li>
     <li id="lang-ru"><a href="/ru/projects/{{P.category}}/{{P.pk}}/">RU</a></li>
-    <li>|</li>
+    <li class="lang-none">|</li>
     <li id="lang-en"><a href="/en/projects/{{P.category}}/{{P.pk}}/">EN</a></li>
     {% endfor %}
   </ul>
