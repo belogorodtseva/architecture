@@ -39,6 +39,22 @@ a {
   text-decoration: none;
 }
 
+#p_prldr{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+    background: #fff;
+    z-index: 30;
+}
+
+#p_prldr img {
+    position: relative;
+    top:30vh;
+    max-height: 40vh;
+}
+
 
 
 .mainheader {
