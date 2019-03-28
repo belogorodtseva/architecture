@@ -6,18 +6,6 @@
 {% endblock %}
 
 {% block content %}
-    <div class="lang">
-      <ul class="lang-list">
-        <li id="lang-ua" class="active-item"><a href="/">UA</a></li>
-        <li class="lang-none">|</li>
-        <li id="lang-ru"><a href="/ru/">RU</a></li>
-        <li class="lang-none">|</li>
-        <li id="lang-en"><a href="/en/">EN</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-
 <nav class="menu">
   <ul class="menu-list">
     <li id="menu-home" class="active-item"><a href="/">ГОЛОВНА</a></li>
@@ -25,6 +13,9 @@
     <li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
   </ul>
 </nav>
+
+  </div>
+</header>
 
 
 <section id="slider">
@@ -34,17 +25,11 @@
 
 </section>
 
-<header>
-  <h2 class="second-header">про нас</h2>
-</header>
-
 <section class="about-section">
   <div class="text-block">
       Історія нашої майстерні почалася в 2003 році. Колектив формувався поступово, але цілеспрямовано і кожен у нас на своєму місці.
       Основателем і безперервним ідейним лидером нашої команди є Чернятевчич Н.Г. - успішний архітектор та викладач КНУБА.
       Під її чітким керівництвом і була створена основна лінія нашої проектної організації.
-  </div>
-  <div class="text-block">
     При створенні проектів наші архітектори використовують кращі комп'ютери та програмне забезпечення.
     Завдяки цьому ми виконуємо нашу роботу швидко і якісно. Каждый из нас является самостоятельной творческой единицей,
     при цьому ми добре і добре працюємо в команді. За нами багаторічний досвід співпраці з великими будівельними фірмами,
@@ -54,25 +39,49 @@
   </div>
 </section>
 
+</br>
+</br>
 
-<header>
-  <h2 class="second-header">останні проекти</h2>
-</header>
-
-<section class="last-projects">
-
-  <div class="projects" >
-    {% for P in Project %}
-      <a href="{% url 'project' pk=P.pk category=P.category %}">
-        <div class="project-block">
-          <div class="project-image-hover">
-            <div class="project-name"><h3>{{ P.name_ua }}</h3></div>
+<section class="about-section">
+  <div class="team" >
+          <div class="team-uno">
+            <img src="{% static 'xxx.jpg' %}" />
+            <div class="team-name">головний архітектор Чернятевич Н.Г.</div>
           </div>
-          <div class="project-image" style="background-image:url('{{ P.img.url }}')"></div>
-        </div>
-      </a>
-    {% endfor %}
+          <div class="team-uno">
+            <img src="{% static 'xxx.jpg' %}" />
+            <div class="team-name">головний архітектор Чернятевич Н.Г.</div>
+          </div>
+          <div class="team-uno">
+            <img src="{% static 'xxx.jpg' %}" />
+            <div class="team-name">головний архітектор Чернятевич Н.Г.</div>
+          </div>
+          <div class="team-uno">
+            <img src="{% static 'xxx.jpg' %}" />
+            <div class="team-name">головний архітектор Чернятевич Н.Г.</div>
+          </div>
+          <div class="team-uno">
+            <img src="{% static 'xxx.jpg' %}" />
+            <div class="team-name">головний архітектор Чернятевич Н.Г.</div>
+          </div>
+  </div>
 </section>
+
+</br>
+</br>
+
+<footer>
+  <div class="container">
+<div class="lang">
+  <ul class="lang-list">
+    <li id="lang-ua" class="active-item"><a href="/">UA</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-ru"><a href="/ru/">RU</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-en"><a href="/en/">EN</a></li>
+  </ul>
+</div>
+
 
 {% endblock %}
 

@@ -13,20 +13,6 @@
 
 
 {% block content %}
-<div class="lang">
-  <ul class="lang-list">
-    {% for P in Project %}
-    <li id="lang-ua" class="active-item"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-ru"><a href="/ru/projects/{{P.category}}/{{P.pk}}/">RU</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-en"><a href="/en/projects/{{P.category}}/{{P.pk}}/">EN</a></li>
-    {% endfor %}
-  </ul>
-</div>
-</div>
-</header>
-
 <nav class="menu">
 <ul class="menu-list">
 <li id="menu-home"><a href="/">ГОЛОВНА</a></li>
@@ -34,6 +20,8 @@
 <li id="menu-contact"><a href="/contact/">КОНТАКТИ</a></li>
 </ul>
 </nav>
+</div>
+</header>
 
 
 <header class="projects-type">
@@ -76,6 +64,24 @@
 
   </div>
 </section>
+
+</br>
+</br>
+
+<footer>
+  <div class="container">
+<div class="lang">
+  <ul class="lang-list">
+    {% for P in Project %}
+    <li id="lang-ua" class="active-item"><a href="/projects/{{P.category}}/{{P.pk}}/">UA</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-ru"><a href="/ru/projects/{{P.category}}/{{P.pk}}/">RU</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-en"><a href="/en/projects/{{P.category}}/{{P.pk}}/">EN</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
 
 
 

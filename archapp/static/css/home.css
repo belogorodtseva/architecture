@@ -1,6 +1,6 @@
 #slider {
   width: 100%;
-  height: 500px;
+  height: 400px;
   opacity:1;
   transition: opacity 5s;
 }
@@ -19,10 +19,13 @@
 .gallery-item {
   display: none;
   width: 100%;
-  height: 500px;
+  height: 400px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projects {
@@ -51,30 +54,29 @@
 
 
 @media (min-width: 768px) {
-  .last-projects, .about-section {
+  .last-projects, .about-section, .gallery-item {
       width: 750px;
   }
 }
 
 @media (min-width: 992px) {
-  .last-projects, .about-section {
+  .last-projects, .about-section, .gallery-item {
       width: 970px;
   }
 }
 
 @media (min-width: 1200px) {
-  .last-projects, .about-section {
+  .last-projects, .about-section, .gallery-item {
       width: 1170px;
   }
 }
 
 .text-block {
-  margin-top: 10px;
+  margin-top: 50px;
   padding: 10px;
-  background-color: #f3f3f3;
   color: #464646;
   text-indent: 10px;
-  font-size: 16px;
+  font-size: 12px;
   text-align: justify;
 }
 
@@ -169,4 +171,39 @@
 
 .last-projects {
   padding-bottom: 100px;
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.team-uno {
+  width: 18%;
+}
+
+.team-uno img {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.team-name {
+  font-size: 10px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .team {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .team-uno {
+    width: 100%;
+  }
+
+  .team-uno img {
+    padding: 20px 50px 5px 50px;
+  }
 }

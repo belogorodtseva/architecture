@@ -8,18 +8,6 @@
 
 
 {% block content %}
-<div class="lang">
-  <ul class="lang-list">
-    <li id="lang-ua" class="active-item"><a href="/contact/">UA</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-ru"><a href="/ru/contact/">RU</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-en"><a href="/en/contact/">EN</a></li>
-  </ul>
-</div>
-</div>
-</header>
-
 <nav class="menu">
 <ul class="menu-list">
 <li id="menu-home"><a href="/">ГОЛОВНА</a></li>
@@ -27,6 +15,8 @@
 <li id="menu-contact" class="active-item"><a href="/contact/">КОНТАКТИ</a></li>
 </ul>
 </nav>
+</div>
+</header>
 
 <header>
   <h2 class="second-header">Нашi контакти</h2>
@@ -67,7 +57,7 @@
    </div>
 
   <div class="contactform">
-    <h3 class="form-header">Написати нам</h3>
+    <div class="form-header">Написати нам</div>
       <form id="form" method="post">
           {% csrf_token %}
           <div class="form-group">
@@ -82,5 +72,21 @@
       </form>
  </div>
 </section>
+
+</br>
+</br>
+
+<footer>
+  <div class="container">
+<div class="lang">
+  <ul class="lang-list">
+    <li id="lang-ua" class="active-item"><a href="/contact/">UA</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-ru"><a href="/ru/contact/">RU</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-en"><a href="/en/contact/">EN</a></li>
+  </ul>
+</div>
+
 
 {% endblock %}
