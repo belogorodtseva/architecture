@@ -7,7 +7,7 @@
 .form-header {
   margin: 0;
   color: #464646;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 100;
   line-height: 50px;
   text-align: center;
@@ -18,7 +18,7 @@
 .second-header{
   margin: 0;
   color: #464646;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 100;
   line-height: 50px;
   text-align: center;
@@ -130,14 +130,14 @@ margin-left: auto;
   cursor: pointer;
 }
 .contact-name {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: lowercase;
   padding: 10px;
 }
 
 .contact-text {
   color: #999;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 @media (max-width: 767px) {

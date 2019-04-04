@@ -45,13 +45,16 @@
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     height: auto;
     list-style-type: none;
     padding: 0;
-    display: none;
+  }
+
+  .submenu-list a, .submenu-list li {
+    font-size: 10px;
   }
 }
 
@@ -65,7 +68,7 @@
 .submenu-list a, .submenu-list li {
   color: #999;
   line-height: 15px;
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 
