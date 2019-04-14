@@ -1,14 +1,26 @@
 #slider {
   width: 100%;
-  height: 400px;
+  height: 30vw;
   opacity:1;
   transition: opacity 5s;
 }
 
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
 
-#slider.fadeOut {
-    opacity:0;
-    transition: opacity 5s;
+.swiper-button-next {
+  background-image:  url("right.png") !important;
+}
+
+.swiper-button-prev {
+    background-image:  url("left.png") !important;
 }
 
 .last-projects, .about-section {
@@ -16,17 +28,7 @@
   margin-left: auto;
 }
 
-.gallery-item {
-  display: none;
-  width: 100%;
-  height: 400px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .projects {
   position: relative;
@@ -47,26 +49,23 @@
     height: 200px;
   }
 
-  .gallery-item {
-    height: 200px;
-  }
 }
 
 
 @media (min-width: 768px) {
-  .last-projects, .about-section, .gallery-item {
+  .last-projects, .about-section {
       width: 750px;
   }
 }
 
 @media (min-width: 992px) {
-  .last-projects, .about-section, .gallery-item {
+  .last-projects, .about-section {
       width: 970px;
   }
 }
 
 @media (min-width: 1200px) {
-  .last-projects, .about-section, .gallery-item {
+  .last-projects, .about-section {
       width: 1170px;
   }
 }

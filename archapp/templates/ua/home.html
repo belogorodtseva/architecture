@@ -3,6 +3,9 @@
 {% block headinua %}
   <title>ГОЛОВНА | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+
 {% endblock %}
 
 {% block content %}
@@ -19,9 +22,22 @@
 
 
 <section id="slider">
-  {% for I in Images %}
-      <div class="gallery-item" style="background-image:url('{{ I.img.url }}')"></div>
-  {% endfor %}
+
+  <div class="swiper-container">
+  <div class="swiper-wrapper">
+
+    {% for I in Images %}
+        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
+        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
+        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
+        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
+    {% endfor %}
+  </div>
+
+  <!-- Add Arrows -->
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+</div>
 
 </section>
 
@@ -86,6 +102,8 @@
 {% endblock %}
 
 {% block scriptin %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+
 <script>
   $('.project-block').hover(function(){
       $(this).toggleClass('active-image');
@@ -94,33 +112,27 @@
 
 
 <script>
-var myIndex = 0;
-carousel();
+var is_mobile = false;
 
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("gallery-item");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(function() {
-        fade();
-    },4500);
-
-    setTimeout(function() {
-        carousel();
-    },5000);
+if( $('#some-element').css('display')=='none') {
+    is_mobile = true;
 }
 
-function fade() {
-    document.getElementById('slider').className = "fadeOut";
-    setTimeout(function() {
-        document.getElementById('slider').className = "";
-    },500);
-}
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: is_mobile ? 1 : 2,
+
+  spaceBetween: 30,
+  centeredSlides: true,
+autoplay: {
+  delay: 2500,
+  disableOnInteraction: false,
+},
+
+navigation: {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev',
+},
+});
 
 </script>
 {% endblock %}

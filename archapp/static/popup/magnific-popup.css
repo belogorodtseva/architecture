@@ -135,7 +135,7 @@ button::-moz-focus-inner {
   opacity: 0.65;
   color: #FFF;
   font-style: normal;
-  font-size: 35px;
+  font-size: 0;
   font-family: Arial, Baskerville, monospace; }
   .mfp-close:hover,
   .mfp-close:focus {
@@ -145,10 +145,8 @@ button::-moz-focus-inner {
 
 
 .mfp-wrap > .mfp-close:before {
-      content:'\2715';
+      content: url("close.png");
       visibility: visible;
-      padding: 20px
-
     }
 
 .mfp-close-btn-in .mfp-close {
@@ -199,12 +197,12 @@ button::-moz-focus-inner {
 
 .mfp-arrow-left {
   left: 0;
-  cursor: url("arrowL.svg"), auto !important;
+  cursor: url("left.png"), auto !important;
 }
 
 .mfp-arrow-right {
   right: 0;
-  cursor: url("arrowR.svg"), auto !important;
+  cursor: url("right.png"), auto !important;
 }
 
 .mfp-iframe-holder {
@@ -235,7 +233,7 @@ button::-moz-focus-inner {
 /* Main image in popup */
 img.mfp-img {
   width: auto;
-  max-width: 100vw;
+  max-width: 94vw;
   max-height: 100vh !important;
   display: block;
   line-height: 0;

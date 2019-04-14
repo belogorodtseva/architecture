@@ -324,3 +324,8 @@ footer {
   width: 100%;
   padding-bottom: 10px;
 }
+
+/* Smartphones ----------- */
+@media only screen and (max-width: 760px) {
+  #some-element { display: none; }
+}
