@@ -1,18 +1,27 @@
 #slider {
   width: 100%;
-  height: 30vw;
+  height: 25vw;
   opacity:1;
   transition: opacity 5s;
 }
 
-.swiper-container {
+.owl-carousel .item {
   width: 100%;
   height: 100%;
-}
-.swiper-slide {
   background-position: center;
   background-size: cover;
-  text-align: center;
+}
+
+.owl-dots {
+    display: none;
+}
+
+.owl-stage .active {
+    direction: rtl; /* Or whatever your default is */
+}
+
+.owl-stage .active ~ .active {
+    direction: ltr; /* Or whatever your default is */
 }
 
 .swiper-button-next {
@@ -43,6 +52,13 @@
   margin-top: 30px;
 }
 
+@media (max-width: 1200px) {
+  #slider {
+    height: 35vw;
+  }
+
+}
+
 
 @media (max-width: 767px) {
   #slider {
@@ -51,22 +67,55 @@
 
 }
 
-
 @media (min-width: 768px) {
-  .last-projects, .about-section {
-      width: 750px;
+  .owl-carousel .owl-item.active {
+      width: calc(50vw - 375px - 30px) !important;
+  }
+
+  .owl-carousel .owl-item.active .item {
+    width: 750px !important;
+    overflow: hidden;
   }
 }
 
 @media (min-width: 992px) {
-  .last-projects, .about-section {
-      width: 970px;
+  .owl-carousel .owl-item.active {
+      width: calc(50vw - 485px - 30px) !important;
+  }
+
+  .owl-carousel .owl-item.active .item {
+    width: 970px !important;
+    overflow: hidden;
   }
 }
 
 @media (min-width: 1200px) {
-  .last-projects, .about-section {
-      width: 1170px;
+  .owl-carousel .owl-item.active {
+      width: calc(50vw - 585px - 30px) !important;
+  }
+
+  .owl-carousel .owl-item.active .item {
+    width: 1170px !important;
+    overflow: hidden;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .last-projects, .about-section, .owl-carousel .owl-item.active.center {
+      width: 750px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .last-projects, .about-section, .owl-carousel .owl-item.active.center {
+      width: 970px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .last-projects, .about-section, .owl-carousel .owl-item.active.center {
+      width: 1170px !important;
   }
 }
 
@@ -77,6 +126,7 @@
   text-indent: 10px;
   font-size: 14px;
   text-align: justify;
+  line-height: 20px;
 }
 
 

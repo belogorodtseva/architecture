@@ -145,8 +145,9 @@ footer .container {
 }
 
 .mainlogo img{
-  height: 20px;
+  height: 30px;
   margin-right: 5px;
+  margin-bottom: -5px;
 }
 
 .log, .logo {
@@ -264,8 +265,13 @@ footer .container {
 
   .mainlogo {
     width: 100%;
-    text-align: left;
+    text-align: center;
     padding-left: 20px;
+  }
+
+  .mainlogo img{
+    position: absolute;
+    left: 20px;
   }
 
 

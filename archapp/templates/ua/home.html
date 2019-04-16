@@ -4,7 +4,8 @@
   <title>ГОЛОВНА | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+<link rel="stylesheet" href="{% static 'owl/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'owl/owl.theme.default.min.css' %}">
 
 {% endblock %}
 
@@ -23,21 +24,20 @@
 
 <section id="slider">
 
-  <div class="swiper-container">
-  <div class="swiper-wrapper">
-
+  <div class="owl-carousel owl-theme">
     {% for I in Images %}
-        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
-        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
-        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
-        <div class="swiper-slide" style="background-image:url('{{ I.img.url }}')"></div>
+        <div  class="item" style="background-image:url('{{ I.img.url }}')"></div>
+    {% endfor %}
+    {% for I in Images %}
+        <div  class="item" style="background-image:url('{{ I.img.url }}')"></div>
+    {% endfor %}
+    {% for I in Images %}
+        <div  class="item" style="background-image:url('{{ I.img.url }}')"></div>
+    {% endfor %}
+    {% for I in Images %}
+        <div  class="item" style="background-image:url('{{ I.img.url }}')"></div>
     {% endfor %}
   </div>
-
-  <!-- Add Arrows -->
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
-</div>
 
 </section>
 
@@ -102,7 +102,7 @@
 {% endblock %}
 
 {% block scriptin %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+<script src="{% static 'owl/owl.carousel.min.js' %}"></script>
 
 <script>
   $('.project-block').hover(function(){
@@ -112,27 +112,22 @@
 
 
 <script>
-var is_mobile = false;
+$('.owl-carousel').owlCarousel({
 
-if( $('#some-element').css('display')=='none') {
-    is_mobile = true;
-}
+    center: true,
+    items: 1,
+    loop: true,
+    margin: 30,
+    responsive: {
+      1000: {
+        items: 3
+      }
+    },
+    autoplay: true,
+    autoplayTimeout: 4000,
 
-var swiper = new Swiper('.swiper-container', {
-  slidesPerView: is_mobile ? 1 : 2,
+    mouseDrag: false
 
-  spaceBetween: 30,
-  centeredSlides: true,
-autoplay: {
-  delay: 2500,
-  disableOnInteraction: false,
-},
-
-navigation: {
-  nextEl: '.swiper-button-next',
-  prevEl: '.swiper-button-prev',
-},
 });
-
 </script>
 {% endblock %}
