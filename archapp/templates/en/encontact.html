@@ -8,25 +8,18 @@
 
 
 {% block content %}
-<div class="lang">
-  <ul class="lang-list">
-    <li id="lang-ua"><a href="/contact/">UA</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-ru"><a href="/ru/contact/">RU</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-en" class="active-item"><a href="/en/contact/">EN</a></li>
-  </ul>
-</div>
+<nav class="menu">
+<ul class="menu-list">
+  <li id="menu-home"><a href="/en/">HOME</a></li>
+  <li id="menu-projects"><a href="/en/projects/">PROJECTS</a></li>
+  <li id="menu-contact" class="active-item"><a href="/en/contact/">CONTACT</a></li>
+</ul>
+</nav>
 </div>
 </header>
 
-<nav class="menu">
-<ul class="menu-list">
-<li id="menu-home"><a href="/en/">HOME</a></li>
-<li id="menu-projects"><a href="/en/projects/">PROJECTS</a></li>
-<li id="menu-contact" class="active-item"><a href="/en/contact/">CONTACT</a></li>
-</ul>
-</nav>
+</br>
+</br></br>
 
 <header>
   <h2 class="second-header">Our contacts</h2>
@@ -38,7 +31,7 @@
         <div class='contact-icon'>
           <i class="fas fa-phone"></i>
         </div>
-        <div class='contact-name'>phone</div>
+        <div class='contact-name'>Phone</div>
         <div class='contact-text'>+38(093) 457 05 04</div>
       </div>
 
@@ -66,8 +59,14 @@
       </div>
    </div>
 
+ </br>
+ </br>
+</br>
+</br>
+
+
   <div class="contactform">
-    <h3 class="form-header">Contact us</h3>
+    <div class="form-header">Contact us</div>
       <form id="form" method="post">
           {% csrf_token %}
           <div class="form-group">
@@ -82,5 +81,21 @@
       </form>
  </div>
 </section>
+
+</br>
+</br>
+
+<footer>
+  <div class="container">
+<div class="lang">
+  <ul class="lang-list">
+    <li id="lang-ua"><a href="/contact/">UA</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-ru"><a href="/ru/contact/">RU</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-en" class="active-item"><a href="/en/contact/">EN</a></li>
+  </ul>
+</div>
+
 
 {% endblock %}

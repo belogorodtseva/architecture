@@ -10,34 +10,26 @@
 {% endblock %}
 
 {% block content %}
-<div class="lang">
-  <ul class="lang-list">
-    <li id="lang-ua"><a href="/projects/">UA</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-ru" class="active-item"><a href="/ru/projects/">RU</a></li>
-    <li class="lang-none">|</li>
-    <li id="lang-en"><a href="/en/projects/">EN</a></li>
-  </ul>
-</div>
-</div>
-</header>
-
 <nav class="menu">
 <ul class="menu-list">
-<li id="menu-home"><a href="/ru/">ГЛАВНАЯ</a></li>
-<li id="menu-projects" class="active-item"><a href="/ru/projects/">ПРОЕКТЫ</a></li>
-<li id="menu-contact"><a href="/ru/contact/">КОНТАКТЫ</a></li>
+  <li id="menu-home"><a href="/ru/">ГЛАВНАЯ</a></li>
+  <li id="menu-projects" class="active-item"><a href="/ru/projects/">ПРОЕКТЫ</a></li>
+  <li id="menu-contact"><a href="/ru/contact/">КОНТАКТЫ</a></li>
 </ul>
 </nav>
 
+</div>
+</header>
+
 <nav class="submenu">
   <ul class="submenu-list" id=myBtnContainer>
-
     <li><a class="btn active" style="display:none;" onclick="filterSelection('all')" >ВСЕ</a></li>
     <li><a class="btn" onclick="filterSelection('building')" >здания и сооружения</a></li>
-    <li><a class="btn" onclick="filterSelection('interior')" >интерьер</a></li>
+    <li><a class="btn" onclick="filterSelection('interior')" >интерьеры</a></li>
     <li><a class="btn" onclick="filterSelection('floating')" >дома на плаву</a></li>
     <li><a class="btn" style="display:none;" onclick="filterSelection('all')" >ВСЕ</a></li>
+
+
   </ul>
 </nav>
 
@@ -62,6 +54,24 @@
 
   </div>
 </section>
+
+</br>
+</br>
+
+<footer>
+  <div class="container">
+
+
+<div class="lang">
+  <ul class="lang-list">
+    <li id="lang-ua"><a href="/projects/">UA</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-ru" class="active-item"><a href="/ru/projects/">RU</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-en"><a href="/en/projects/">EN</a></li>
+  </ul>
+</div>
+
 
 <script>
 filterSelection("all")

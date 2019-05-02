@@ -15,11 +15,9 @@ from django.template.loader import get_template
 from itertools import chain
 
 def index(request):
-    projects = sorted(chain(BuildingProject.objects.all()[:3], InteriorProject.objects.all()[:2], FloatingProject.objects.all()[:1]),
-                    key=lambda instance: instance.date)
     content = {
         'Images' : HomeImage.objects.all().order_by('number'),
-        'Project' : projects,
+        'People' : People.objects.all().order_by('number'),
     }
     return render(request, 'ua/home.html', content)
 
@@ -71,11 +69,9 @@ def contact(request):
 ##################################     ru
 
 def ruindex(request):
-    projects = sorted(chain(BuildingProject.objects.all()[:3], InteriorProject.objects.all()[:2], FloatingProject.objects.all()[:1]),
-                    key=lambda instance: instance.date)
     content = {
         'Images' : HomeImage.objects.all().order_by('number'),
-        'Project' : projects,
+        'People' : People.objects.all().order_by('number'),
     }
     return render(request, 'ru/ruhome.html', content)
 
@@ -128,11 +124,9 @@ def rucontact(request):
 ##################################     en
 
 def enindex(request):
-    projects = sorted(chain(BuildingProject.objects.all()[:3], InteriorProject.objects.all()[:2], FloatingProject.objects.all()[:1]),
-                    key=lambda instance: instance.date)
     content = {
         'Images' : HomeImage.objects.all().order_by('number'),
-        'Project' : projects,
+        'People' : People.objects.all().order_by('number')
     }
     return render(request, 'en/enhome.html', content)
 

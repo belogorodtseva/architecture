@@ -8,9 +8,7 @@ from archapp.models import *
 
 admin.site.register(HomeImage)
 
-admin.site.register(BuildingType)
-admin.site.register(InteriorType)
-admin.site.register(FloatingType)
+admin.site.register(People)
 
 class BuildingImageInline(admin.TabularInline):
     model = BuildingImage

@@ -1,46 +1,25 @@
 {% extends "indextemplate.html" %}
 {% load staticfiles %}
 
-{% block headin %}
-  {% block headinua %}
+  {% block headin %}
+    {% block headinua %}
+    {% endblock %}
   {% endblock %}
-{% endblock %}
-
 
 
 {% block body %}
   <header class="mainheader">
     <div class="container">
-      <div class="soc-icons">
-        <a href="https://www.instagram.com/" target="_blank" rel="nofollow">
-          <span class="icon-instagram"></span>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank" rel="nofollow">
-          <span class="icon-facebook"></span>
-        </a>
-        <a href="https://www.behance.net/" target="_blank" rel="nofollow">
-          <span class="icon-behance"></span>
-        </a>
-        <a href="https://twitter.com/" target="_blank" rel="nofollow">
-          <span class="icon-twitter"></span>
-        </a>
-      </div>
-      <div class="container-button" onclick="myFunction(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </div>
       <div class="mainlogo">
-        <a href="/">ARCHIPROJECT</a>
+        <img class="log active-logo" src="{% static 'Arch.jpg' %}" alt="archiproject" onclick="myFunction(this)">
+        <img class="logo" src="{% static 'house.png' %}" alt="archiproject" onclick="myFunction(this)">
+        <a href="/en/">ARCHIPROJECT</a>
       </div>
 
 
   {% block content %}
   {% endblock %}
 
-  <!--Footer-->
-  <footer>
-    <div class="container">
       <div class="soc-icons">
         <a href="https://www.instagram.com/" target="_blank" rel="nofollow">
           <span class="icon-instagram"></span>
@@ -51,19 +30,19 @@
         <a href="https://www.behance.net/" target="_blank" rel="nofollow">
           <span class="icon-behance"></span>
         </a>
-        <a href="https://twitter.com/" target="_blank" rel="nofollow">
-          <span class="icon-twitter"></span>
-        </a>
       </div>
     </div>
   </footer>
   <script>
     function myFunction(x) {
-        x.classList.toggle("change");
         $(".menu-list").toggleClass("open");
+        $(".logo").toggleClass("active-logo");
+        $(".log").toggleClass("active-logo");
     }
   </script>
   {% block scriptin %}
+
+
   {% endblock %}
 
 {% endblock %}

@@ -4,64 +4,6 @@ from django.db import models
 import datetime
 from datetime import datetime
 
-###### InteriorType #####
-
-class InteriorType(models.Model):
-
-    title_en = models.CharField(max_length=40,blank=True, null=True)
-    title_ru = models.CharField(max_length=40,blank=True, null=True)
-    title_ua = models.CharField(max_length=40,blank=True, null=True)
-    description_en = models.TextField(max_length=150,blank=True, null=True)
-    description_ru = models.TextField(max_length=150,blank=True, null=True)
-    description_ua = models.TextField(max_length=150,blank=True, null=True)
-
-    name_en = models.CharField(max_length=100)
-    name_ru = models.CharField(max_length=100)
-    name_ua = models.CharField(max_length=100)
-
-
-    def __str__(self):
-        return '%s' % (str(self.name_en))
-
-###### BuildingsType #####
-
-class BuildingType(models.Model):
-
-    title_en = models.CharField(max_length=40,blank=True, null=True)
-    title_ru = models.CharField(max_length=40,blank=True, null=True)
-    title_ua = models.CharField(max_length=40,blank=True, null=True)
-    description_en = models.TextField(max_length=150,blank=True, null=True)
-    description_ru = models.TextField(max_length=150,blank=True, null=True)
-    description_ua = models.TextField(max_length=150,blank=True, null=True)
-
-    name_en = models.CharField(max_length=100)
-    name_ru = models.CharField(max_length=100)
-    name_ua = models.CharField(max_length=100)
-
-
-    def __str__(self):
-        return '%s' % (str(self.name_en))
-
-###### FloatingType #####
-
-class FloatingType(models.Model):
-
-    title_en = models.CharField(max_length=40,blank=True, null=True)
-    title_ru = models.CharField(max_length=40,blank=True, null=True)
-    title_ua = models.CharField(max_length=40,blank=True, null=True)
-    description_en = models.TextField(max_length=150,blank=True, null=True)
-    description_ru = models.TextField(max_length=150,blank=True, null=True)
-    description_ua = models.TextField(max_length=150,blank=True, null=True)
-
-    name_en = models.CharField(max_length=100)
-    name_ru = models.CharField(max_length=100)
-    name_ua = models.CharField(max_length=100)
-
-
-    def __str__(self):
-        return '%s' % (str(self.name_en))
-
-
 ###### BuildingsProject #####
 
 class BuildingProject(models.Model):
@@ -98,8 +40,6 @@ class BuildingProject(models.Model):
     year_ua = models.CharField(max_length=100,blank=True, null=True)
 
     img = models.FileField(blank=False, null=False)
-
-    type = models.ForeignKey(BuildingType, blank=True, null=True)
 
     date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     active = models.BooleanField(default=True)
@@ -147,8 +87,6 @@ class InteriorProject(models.Model):
 
     img = models.FileField(blank=False, null=False)
 
-    type = models.ForeignKey(InteriorType, blank=True, null=True)
-
     date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     active = models.BooleanField(default=True)
 
@@ -194,8 +132,6 @@ class FloatingProject(models.Model):
     year_ua = models.CharField(max_length=100,blank=True, null=True)
 
     img = models.FileField(blank=False, null=False)
-
-    type = models.ForeignKey(FloatingType, blank=True, null=True)
 
     date = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     active = models.BooleanField(default=True)
@@ -258,6 +194,19 @@ class FloatingPublication(models.Model):
 class HomeImage(models.Model):
    number = models.IntegerField(default=1)
    img = models.FileField(blank=False, null=False)
+
+   def __str__(self):
+        return "# " + str(self.number)
+
+
+###### People-photo #####
+
+class People(models.Model):
+   number = models.IntegerField(default=1)
+   img = models.FileField(blank=False, null=False)
+   name_en = models.CharField(max_length=100, null=False, blank=False)
+   name_ru = models.CharField(max_length=100, null=False, blank=False)
+   name_ua = models.CharField(max_length=100, null=False, blank=False)
 
    def __str__(self):
         return "# " + str(self.number)

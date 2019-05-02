@@ -3,49 +3,40 @@
 {% block headinua %}
   <title>HOME | ARCHIPROJECTS</title>
   <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+
+<link rel="stylesheet" href="{% static 'owl/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'owl/owl.theme.default.min.css' %}">
+
 {% endblock %}
 
 {% block content %}
-
-    <div class="lang">
-      <ul class="lang-list">
-        <li id="lang-ua"><a href="/">UA</a></li>
-        <li class="lang-none">|</li>
-        <li id="lang-ru"><a href="/ru/">RU</a></li>
-        <li class="lang-none">|</li>
-        <li id="lang-en" class="active-item"><a href="/en/">EN</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-
 <nav class="menu">
   <ul class="menu-list">
-    <li id="menu-home" class="active-item"><a href="/">HOME</a></li>
+    <li id="menu-home" class="active-item"><a href="/en/">HOME</a></li>
     <li id="menu-projects"><a href="/en/projects/">POJECTS</a></li>
     <li id="menu-contact"><a href="/en/contact/">CONTACT</a></li>
   </ul>
 </nav>
 
+  </div>
+</header>
+
 
 <section id="slider">
-  {% for I in Images %}
-      <div class="gallery-item" style="background-image:url('{{ I.img.url }}')"></div>
-  {% endfor %}
+
+  <div class="owl-carousel owl-theme">
+    {% for I in Images %}
+        <div  class="item" style="background-image:url('{{ I.img.url }}')"></div>
+    {% endfor %}
+  </div>
 
 </section>
-
-<header>
-  <h2 class="second-header">about us</h2>
-</header>
 
 <section class="about-section">
   <div class="text-block">
     The history of our workshop began in 2003. The team was formed gradually, but purposefully and everyone in our place.
     Chernyatyevich N.G. is the founder and the permanent ideological leader of our team. - a successful architect and teacher of KNUBA.
     Under her clear guidance, the main line of our design organization was formed.
-  </div>
-  <div class="text-block">
     When creating projects, our architects use the best computers and software.
     Due to this we carry out our work quickly and qualitatively. Each of us is an independent creative unit,
     At the same time, we are co-operating and competently working in the team. We have many years of experience in cooperation with major construction companies,
@@ -55,63 +46,66 @@
   </div>
 </section>
 
+</br>
+</br>
 
-<header>
-  <h2 class="second-header">last projects</h2>
-</header>
+<section class="about-section">
+  <div class="team" >
 
-<section class="last-projects">
-
-  <div class="projects" >
-    {% for P in Project %}
-      <a href="{% url 'enproject' pk=P.pk category=P.category %}">
-        <div class="project-block">
-          <div class="project-image-hover">
-            <div class="project-name"><h3>{{ P.name_en }}</h3></div>
+          {% for P in People %}
+          <div class="team-uno">
+            <img src="{{ P.img.url }}" />
+            <div class="team-name">{{ P.name_en }}</div>
           </div>
-          <div class="project-image" style="background-image:url('{{ P.img.url }}')"></div>
-        </div>
-      </a>
-    {% endfor %}
+          {% endfor %}
+  </div>
 </section>
+
+</br>
+</br>
+
+<footer>
+  <div class="container">
+<div class="lang">
+  <ul class="lang-list">
+    <li id="lang-ua"><a href="/">UA</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-ru"><a href="/ru/">RU</a></li>
+    <li class="lang-none">|</li>
+    <li id="lang-en" class="active-item"><a href="/en/">EN</a></li>
+  </ul>
+</div>
+
 
 {% endblock %}
 
 {% block scriptin %}
+<script src="{% static 'owl/owl.carousel.min.js' %}"></script>
+
 <script>
   $('.project-block').hover(function(){
       $(this).toggleClass('active-image');
   });
 </script>
 
+
 <script>
-var myIndex = 0;
-carousel();
+$('.owl-carousel').owlCarousel({
 
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("gallery-item");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(function() {
-        fade();
-    },4500);
+    center: true,
+    items: 1,
+    loop: true,
+    margin: 30,
+    responsive: {
+      1000: {
+        items: 3
+      }
+    },
+    autoplay: true,
+    autoplayTimeout: 4000,
 
-    setTimeout(function() {
-        carousel();
-    },5000);
-}
+    mouseDrag: false
 
-function fade() {
-    document.getElementById('slider').className = "fadeOut";
-    setTimeout(function() {
-        document.getElementById('slider').className = "";
-    },500);
-}
-
+});
 </script>
 {% endblock %}
